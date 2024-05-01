@@ -1,5 +1,14 @@
 import Image from "next/image";
-import { Flex, Divider, Button } from "@chakra-ui/react";
+import {
+  Flex,
+  Divider,
+  Button,
+  Link,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+} from "@chakra-ui/react";
 
 import { AiOutlineFacebook, AiOutlineInstagram } from "react-icons/ai";
 
@@ -8,7 +17,7 @@ import logo from "../../../assets/logo.png";
 const styles = {
   header: {
     w: "100%",
-    h: {base: "80px", md: "98px"},
+    h: { base: "80px", md: "98px" },
     bg: "dark",
     justifyContent: "space-between",
     alignItems: "center",
@@ -23,7 +32,7 @@ const styles = {
     // borderColor: "white",
   },
   logo: {
-    w: {base: "115px", md: "145px"},
+    w: { base: "115px", md: "145px" },
     h: "auto",
     zIndex: "overlay",
   },
@@ -59,6 +68,10 @@ const styles = {
     h: { base: "40px", md: "50px" },
     mt: { base: "0px", md: "0px" },
   },
+  menuItemLink: {
+    w: "100%",
+    _hover: { textDecoration: "none" },
+  },
 };
 
 function Header() {
@@ -66,8 +79,13 @@ function Header() {
     <Flex {...styles.header}>
       {/* SOCIAL ICONS */}
       <Flex {...styles.socialIconContainer}>
-        <AiOutlineFacebook style={styles.socialIcon} />
-        <AiOutlineInstagram style={styles.socialIcon} />
+        <Link href="https://chakra-ui.com" isExternal>
+          <AiOutlineFacebook style={styles.socialIcon} />
+        </Link>
+
+        <Link href="https://chakra-ui.com" isExternal>
+          <AiOutlineInstagram style={styles.socialIcon} />
+        </Link>
       </Flex>
 
       <Flex {...styles.logoConteiner} position="relative">
@@ -78,24 +96,43 @@ function Header() {
         />
 
         <Flex {...styles.logo}>
-          <Image src={logo} width={145} height={57} alt="metaler logo" />
+          <Link href="/">
+            <Image src={logo} width={145} height={57} alt="metaler logo" />
+          </Link>
         </Flex>
       </Flex>
 
       <Flex {...styles.menu}>
-        <Flex {...styles.menuButton}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="auto"
-            height="auto"
-            viewBox="0 0 50 50"
-            fill="none"
-          >
-            <rect width="50" height="50" fill="#BBCD52" />
-            <rect x="19" y="6" width="2" height="31" fill="#0E1B1B" />
-            <rect x="28" y="12" width="2" height="31" fill="#0E1B1B" />
-          </svg>
-        </Flex>
+        <Menu>
+          <MenuButton as={Button} variant="unstyled" {...styles.menuButton}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="auto"
+              height="auto"
+              viewBox="0 0 50 50"
+              fill="none"
+            >
+              <rect width="50" height="50" fill="#BBCD52" />
+              <rect x="19" y="6" width="2" height="31" fill="#0E1B1B" />
+              <rect x="28" y="12" width="2" height="31" fill="#0E1B1B" />
+            </svg>
+          </MenuButton>
+          <MenuList zIndex="overlay">
+            <MenuItem>Download</MenuItem>
+            <MenuItem>
+              <Link
+                href="/contact"
+                {...styles.menuItemLink}
+                textDecoration="none"
+              >
+                Contact
+              </Link>
+            </MenuItem>
+            <MenuItem>Mark as Draft</MenuItem>
+            <MenuItem>Delete</MenuItem>
+            <MenuItem>Attend a Workshop</MenuItem>
+          </MenuList>
+        </Menu>
       </Flex>
     </Flex>
   );
