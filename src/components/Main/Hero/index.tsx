@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Flex, Text, ScaleFade, useDisclosure } from "@chakra-ui/react";
 
@@ -35,7 +35,7 @@ const styles = {
 function Hero() {
   const [isOpen, setIsOpen] = useState(false);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setIsOpen(true);
 
     return () => setIsOpen(false);
