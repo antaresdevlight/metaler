@@ -15,8 +15,15 @@ import { AiOutlineFacebook, AiOutlineInstagram } from "react-icons/ai";
 import logo from "../../../assets/logo.png";
 
 const styles = {
+  mainContainer: {
+    w: "100%",
+    h: "auto",
+    bg: "dark",
+    justifyContent: "center",
+  },
   header: {
     w: "100%",
+    maxW: "2500px",
     h: { base: "80px", md: "98px" },
     bg: "dark",
     justifyContent: "space-between",
@@ -76,63 +83,65 @@ const styles = {
 
 function Header() {
   return (
-    <Flex {...styles.header}>
-      {/* SOCIAL ICONS */}
-      <Flex {...styles.socialIconContainer}>
-        <Link href="https://chakra-ui.com" isExternal>
-          <AiOutlineFacebook style={styles.socialIcon} />
-        </Link>
+    <Flex {...styles.mainContainer}>
+      <Flex {...styles.header}>
+        {/* SOCIAL ICONS */}
+        <Flex {...styles.socialIconContainer}>
+          <Link href="https://chakra-ui.com" isExternal>
+            <AiOutlineFacebook style={styles.socialIcon} />
+          </Link>
 
-        <Link href="https://chakra-ui.com" isExternal>
-          <AiOutlineInstagram style={styles.socialIcon} />
-        </Link>
-      </Flex>
-
-      <Flex {...styles.logoConteiner} position="relative">
-        <Divider
-          {...styles.divider}
-          orientation="horizontal"
-          position="absolute"
-        />
-
-        <Flex {...styles.logo}>
-          <Link href="/">
-            <Image src={logo} width={145} height={57} alt="metaler logo" />
+          <Link href="https://chakra-ui.com" isExternal>
+            <AiOutlineInstagram style={styles.socialIcon} />
           </Link>
         </Flex>
-      </Flex>
 
-      <Flex {...styles.menu}>
-        <Menu>
-          <MenuButton as={Button} variant="unstyled" {...styles.menuButton}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="auto"
-              height="auto"
-              viewBox="0 0 50 50"
-              fill="none"
-            >
-              <rect width="50" height="50" fill="#BBCD52" />
-              <rect x="19" y="6" width="2" height="31" fill="#0E1B1B" />
-              <rect x="28" y="12" width="2" height="31" fill="#0E1B1B" />
-            </svg>
-          </MenuButton>
-          <MenuList zIndex="overlay">
-            <MenuItem>Download</MenuItem>
-            <MenuItem>
-              <Link
-                href="/contact"
-                {...styles.menuItemLink}
-                textDecoration="none"
+        <Flex {...styles.logoConteiner} position="relative">
+          <Divider
+            {...styles.divider}
+            orientation="horizontal"
+            position="absolute"
+          />
+
+          <Flex {...styles.logo}>
+            <Link href="/">
+              <Image src={logo} width={145} height={57} alt="metaler logo" />
+            </Link>
+          </Flex>
+        </Flex>
+
+        <Flex {...styles.menu}>
+          <Menu>
+            <MenuButton as={Button} variant="unstyled" {...styles.menuButton}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="auto"
+                height="auto"
+                viewBox="0 0 50 50"
+                fill="none"
               >
-                Contact
-              </Link>
-            </MenuItem>
-            <MenuItem>Mark as Draft</MenuItem>
-            <MenuItem>Delete</MenuItem>
-            <MenuItem>Attend a Workshop</MenuItem>
-          </MenuList>
-        </Menu>
+                <rect width="50" height="50" fill="#BBCD52" />
+                <rect x="19" y="6" width="2" height="31" fill="#0E1B1B" />
+                <rect x="28" y="12" width="2" height="31" fill="#0E1B1B" />
+              </svg>
+            </MenuButton>
+            <MenuList zIndex="overlay">
+              <MenuItem>Download</MenuItem>
+              <MenuItem>
+                <Link
+                  href="/contact"
+                  {...styles.menuItemLink}
+                  textDecoration="none"
+                >
+                  Contact
+                </Link>
+              </MenuItem>
+              <MenuItem>Mark as Draft</MenuItem>
+              <MenuItem>Delete</MenuItem>
+              <MenuItem>Attend a Workshop</MenuItem>
+            </MenuList>
+          </Menu>
+        </Flex>
       </Flex>
     </Flex>
   );

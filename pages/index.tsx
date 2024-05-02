@@ -5,11 +5,16 @@ import Footer from "@/src/components/Layout/Footer";
 import Hero from "@/src/components/Main/Hero";
 import Us from "@/src/components/Main/Us";
 
-const styles = {};
+const styles = {
+  page: {
+    w: "100%",
+    h: "auto",
+  },
+};
 
 function Home() {
   return (
-    <Flex direction="column">
+    <Flex {...styles.page} direction="column">
       <Header />
 
       <Hero />

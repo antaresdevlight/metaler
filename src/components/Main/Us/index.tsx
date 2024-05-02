@@ -7,10 +7,18 @@ import usImg from "../../../assets/us.png";
 import sitedata from "@/src/constants/sitedata";
 
 const styles = {
+  section: {
+    w: "100%",
+    h: "auto",
+    bg: "white",
+    justifyContent: "center",
+  },
   us: {
     w: "100%",
+    maxW: "1440px",
     h: { lg: "740px", xl: "740px" },
     maxH: "740px",
+    border: "1px",
   },
   darkContainer: {
     w: { lg: "91%", xl: "91%" },
@@ -31,8 +39,8 @@ const styles = {
     fontWeight: "400",
     lineHeight: "normal",
     mb: { lg: "0", xl: "0" },
-    border: "1px",
-    borderColor: "white",
+    // border: "1px",
+    // borderColor: "white",
   },
   titleText: {},
   divider: {
@@ -64,30 +72,32 @@ function Us() {
   const sectionData = sitedata.us;
 
   return (
-    <Flex {...styles.us}>
-      {/* DARK CONTAINER */}
-      <Flex {...styles.darkContainer} direction="row" position="relative">
-        {/* TITLE */}
-        <Flex {...styles.title} position="absolute">
-          <Text>{sectionData.title}</Text>
+    <Flex {...styles.section}>
+      <Flex {...styles.us}>
+        {/* DARK CONTAINER */}
+        <Flex {...styles.darkContainer} direction="row" position="relative">
+          {/* TITLE */}
+          <Flex {...styles.title} position="absolute">
+            <Text>{sectionData.title}</Text>
 
-          <Divider {...styles.divider} orientation="horizontal" />
-        </Flex>
+            <Divider {...styles.divider} orientation="horizontal" />
+          </Flex>
 
-        {/* IMAGE */}
-        <Flex {...styles.image}>
-          <Image src={usImg} width={549} height={624} alt="us" />
-        </Flex>
+          {/* IMAGE */}
+          <Flex {...styles.image}>
+            <Image src={usImg} width={549} height={624} alt="us" />
+          </Flex>
 
-        {/* TEXT */}
-        <Flex {...styles.text} direction="column">
-          <Text>{sectionData.par1}</Text>
+          {/* TEXT */}
+          <Flex {...styles.text} direction="column">
+            <Text>{sectionData.par1}</Text>
 
-          {/* <Flex {...styles.image}>
+            {/* <Flex {...styles.image}>
             <Image src={usImg} width={549} height={624} alt="us" />
           </Flex> */}
 
-          <Text>{sectionData.par2}</Text>
+            <Text>{sectionData.par2}</Text>
+          </Flex>
         </Flex>
       </Flex>
     </Flex>
