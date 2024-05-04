@@ -60,6 +60,9 @@ const sitedata = {
       },
     ],
   },
+  contact_label: {
+    title: "Contacto",
+  },
 };
 
 export default sitedata;

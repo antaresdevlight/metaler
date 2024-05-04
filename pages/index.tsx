@@ -7,6 +7,7 @@ import Us from "@/src/components/Main/Us";
 import MissionVission from "@/src/components/Main/MissionVission";
 import OurFocus from "@/src/components/Main/OurFocus";
 import OurProducts from "@/src/components/Main/OurProducts";
+import ContactLabel from "@/src/components/Main/ContactLabel";
 
 const styles = {
   page: {
@@ -30,6 +31,8 @@ function Home() {
       <OurFocus />
 
       <OurProducts />
+
+      <ContactLabel />
 
       <Footer />
     </Flex>

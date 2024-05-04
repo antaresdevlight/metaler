@@ -5,6 +5,7 @@ const styles = {
   button: {
     w: { base: "150px", md: "170px" },
     h: { base: "40px", md: "45px" },
+    minH: { base: "40px", md: "45px" },
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -22,9 +23,10 @@ function CommonButton(props: {
   action?: any;
   route?: string;
   bg?: string;
-  mt: any;
+  color?: string;
+  mt?: any;
 }) {
-  const { text, action, route, bg, mt } = props;
+  const { text, action, route, bg, color, mt } = props;
 
   const router = useRouter();
 
@@ -33,6 +35,7 @@ function CommonButton(props: {
       variant="unstyled"
       {...styles.button}
       bg={bg || "metaler"}
+      color={color || "dark"}
       mt={mt || "0"}
       onClick={() => {
         action ? action() : route ? router.push(route) : null;

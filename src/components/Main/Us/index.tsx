@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Flex, Text, ScaleFade, Divider } from "@chakra-ui/react";
 
+import CommonButton from "../../Layout/CommonButton";
+
 import usImg from "../../../assets/us.png";
 
 import sitedata from "@/src/constants/sitedata";
@@ -92,11 +94,9 @@ function Us() {
           <Flex {...styles.text} direction="column">
             <Text>{sectionData.par1}</Text>
 
-            {/* <Flex {...styles.image}>
-            <Image src={usImg} width={549} height={624} alt="us" />
-          </Flex> */}
-
             <Text>{sectionData.par2}</Text>
+
+            <CommonButton text={"Leer Más"} route="/contact" />
           </Flex>
         </Flex>
       </Flex>

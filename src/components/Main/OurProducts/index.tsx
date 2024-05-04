@@ -68,7 +68,6 @@ const styles = {
     w: { xl: "370px" },
     h: { xl: "408px" },
     bg: "white",
-    border: "1px",
   },
   productName: {
     bg: "metaler",
