@@ -4,6 +4,7 @@ import { Flex, Text, Divider } from "@chakra-ui/react";
 import CommonButton from "../../Layout/CommonButton";
 
 import sitedata from "@/src/constants/sitedata";
+import routes from "@/src/constants/routes";
 
 import prod1 from "../../../assets/prod1.png";
 import prod2 from "../../../assets/prod2.png";
@@ -135,7 +136,7 @@ function OurProducts() {
 
         <CommonButton
           text={"Ver Más"}
-          route="/contact"
+          route={routes.CONTACT}
           mt={{ base: "100px", md: "219px" }}
         />
       </Flex>

@@ -14,6 +14,8 @@ import { AiOutlineFacebook, AiOutlineInstagram } from "react-icons/ai";
 
 import logo from "../../../assets/logo.png";
 
+import routes from "@/src/constants/routes";
+
 const styles = {
   mainContainer: {
     w: "100%",
@@ -104,7 +106,7 @@ function Header() {
           />
 
           <Flex {...styles.logo}>
-            <Link href="/">
+            <Link href={routes.HOME}>
               <Image src={logo} width={145} height={57} alt="metaler logo" />
             </Link>
           </Flex>
@@ -129,7 +131,7 @@ function Header() {
               <MenuItem>Download</MenuItem>
               <MenuItem>
                 <Link
-                  href="/contact"
+                  href={routes.CONTACT}
                   {...styles.menuItemLink}
                   textDecoration="none"
                 >

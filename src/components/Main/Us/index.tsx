@@ -7,6 +7,7 @@ import CommonButton from "../../Layout/CommonButton";
 import usImg from "../../../assets/us.png";
 
 import sitedata from "@/src/constants/sitedata";
+import routes from "@/src/constants/routes";
 
 const styles = {
   section: {
@@ -96,7 +97,7 @@ function Us() {
 
             <Text>{sectionData.par2}</Text>
 
-            <CommonButton text={"Leer Más"} route="/contact" />
+            <CommonButton text={"Leer Más"} route={routes.CONTACT} />
           </Flex>
         </Flex>
       </Flex>

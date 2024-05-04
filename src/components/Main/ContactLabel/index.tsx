@@ -1,6 +1,8 @@
+import { useRouter } from "next/router";
 import { Flex, Text, Divider } from "@chakra-ui/react";
 
 import sitedata from "@/src/constants/sitedata";
+import routes from "@/src/constants/routes";
 
 const styles = {
   section: {
@@ -40,12 +42,17 @@ const styles = {
 
 function ContactLabel() {
   const sectionData = sitedata.contact_label;
+
+  const router = useRouter();
+
   return (
     <Flex {...styles.section}>
       <Flex {...styles.contactLabel}>
         {/* TITLE */}
         <Flex {...styles.title}>
-          <Text>{sectionData.title}</Text>
+          <Text onClick={() => router.push(routes.CONTACT)}>
+            {sectionData.title}
+          </Text>
 
           <Divider {...styles.divider} orientation="horizontal" />
         </Flex>
