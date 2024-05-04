@@ -40,6 +40,26 @@ const sitedata = {
       "BROCAL Y TAPA MANHOLE (Telecomunicaciones)",
     ],
   },
+  our_products: {
+    title: "Nuestros Productos",
+    products: [
+      {
+        name: "Producto1",
+        details: "Amet eu facilisi posuere ut at cras non ipsum proin",
+        img: "prod1",
+      },
+      {
+        name: "Producto2",
+        details: "Emu facilisi posuere ut at cras non ipsum proin",
+        img: "prod2",
+      },
+      {
+        name: "Producto3",
+        details: "Fasacilisi posuere ut at cras non ipsum proin",
+        img: "prod3",
+      },
+    ],
+  },
 };
 
 export default sitedata;

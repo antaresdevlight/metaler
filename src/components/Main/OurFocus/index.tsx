@@ -99,6 +99,7 @@ const styles = {
   },
   leftContainerItemText: {},
 };
+
 function OurFocus() {
   const sectionData = sitedata.our_focus;
 

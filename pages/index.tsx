@@ -6,6 +6,7 @@ import Hero from "@/src/components/Main/Hero";
 import Us from "@/src/components/Main/Us";
 import MissionVission from "@/src/components/Main/MissionVission";
 import OurFocus from "@/src/components/Main/OurFocus";
+import OurProducts from "@/src/components/Main/OurProducts";
 
 const styles = {
   page: {
@@ -27,6 +28,8 @@ function Home() {
       <MissionVission />
 
       <OurFocus />
+
+      <OurProducts />
 
       <Footer />
     </Flex>
