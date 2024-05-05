@@ -18,8 +18,8 @@ const styles = {
     bg: "dark",
     px: { base: "20px", md: "30px", lg: "40px", xl: "62px" },
     justifyContent: "flex-end",
-    border: "1px",
-    borderColor: "white",
+    // border: "1px",
+    // borderColor: "white",
   },
   text: {
     maxW: { base: "auto", xl: "282px" },

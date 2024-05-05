@@ -22,13 +22,13 @@ function Home() {
 
       <Us />
 
-      <MissionVission />
+      {/* <MissionVission />
 
       <OurFocus />
 
       <OurProducts />
 
-      <ContactLabel />
+      <ContactLabel /> */}
     </Flex>
   );
 }

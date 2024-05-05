@@ -3,8 +3,8 @@ import { Button, Text } from "@chakra-ui/react";
 
 const styles = {
   button: {
-    w: { base: "150px", md: "170px" },
-    h: { base: "40px", md: "45px" },
+    w: { base: "150px", lg: "170px" },
+    h: { base: "40px", lg: "45px" },
     minH: { base: "40px", md: "45px" },
     display: "flex",
     alignItems: "center",
