@@ -1,5 +1,8 @@
 import { ChakraProvider } from "@chakra-ui/react";
 
+import Header from "../src/components/Layout/Header";
+import Footer from "@/src/components/Layout/Footer";
+
 // 1. Import the extendTheme function
 import { extendTheme } from "@chakra-ui/react";
 
@@ -31,7 +34,11 @@ export const theme = extendTheme({ colors, breakpoints });
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
+      <Header />
+
       <Component {...pageProps} />
+
+      <Footer />
     </ChakraProvider>
   );
 }

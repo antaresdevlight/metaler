@@ -63,6 +63,23 @@ const sitedata = {
   contact_label: {
     title: "Contacto",
   },
+  footer: {
+    copy: "Copyright 2024",
+    contactInfo: [
+      {
+        text: "uriel_vera_@hotmail.com",
+        icon: "mail",
+      },
+      {
+        text: "775-1492233",
+        icon: "phone",
+      },
+      {
+        text: "Chalco de Díaz Covarrubias, C.P. 56608, Estado de México.",
+        icon: "location",
+      },
+    ],
+  },
 };
 
 export default sitedata;

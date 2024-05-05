@@ -1,5 +1,4 @@
-import { useRouter } from "next/router";
-import { Flex, Text, Divider } from "@chakra-ui/react";
+import { Flex, Text, Divider, Link } from "@chakra-ui/react";
 
 import sitedata from "@/src/constants/sitedata";
 import routes from "@/src/constants/routes";
@@ -43,16 +42,14 @@ const styles = {
 function ContactLabel() {
   const sectionData = sitedata.contact_label;
 
-  const router = useRouter();
-
   return (
     <Flex {...styles.section}>
       <Flex {...styles.contactLabel}>
         {/* TITLE */}
         <Flex {...styles.title}>
-          <Text onClick={() => router.push(routes.CONTACT)}>
-            {sectionData.title}
-          </Text>
+          <Link href={routes.CONTACT} _hover={{ textDecoration: "none" }}>
+            <Text>{sectionData.title}</Text>
+          </Link>
 
           <Divider {...styles.divider} orientation="horizontal" />
         </Flex>

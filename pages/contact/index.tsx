@@ -14,7 +14,6 @@ const styles = {};
 function Home() {
   return (
     <Flex direction="column">
-      <Header />
       <Text>Home - page</Text>
 
       <form>
