@@ -20,7 +20,7 @@ const styles = {
     w: "100%",
     maxW: "1440px",
     h: { base: "max-content", md: "max-content", lg: "740px", xl: "740px" },
-    maxH: "740px",
+    //maxH: "740px",
     justifyContent: { lg: "center", xl: "flex-start" },
     // border: "1px",
   },
@@ -100,9 +100,13 @@ function Us() {
 
           {/* TEXT */}
           <Flex {...styles.text} direction="column">
-            <Text>{sectionData.par1}</Text>
+            <Text textAlign={{ base: "center", md: "left" }}>
+              {sectionData.par1}
+            </Text>
 
-            <Text>{sectionData.par2}</Text>
+            <Text textAlign={{ base: "center", md: "left" }}>
+              {sectionData.par2}
+            </Text>
 
             <CommonButton text={"Leer Más"} route={routes.CONTACT} />
           </Flex>
