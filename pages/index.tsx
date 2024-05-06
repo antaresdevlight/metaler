@@ -28,7 +28,7 @@ function Home() {
 
       <OurProducts />
 
-      {/* <ContactLabel /> */}
+      <ContactLabel />
     </Flex>
   );
 }
