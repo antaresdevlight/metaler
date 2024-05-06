@@ -16,84 +16,94 @@ const styles = {
     w: "100%",
     maxW: "1440px",
     h: "auto",
-    py: { xl: "126px" },
+    py: { base: "21.88vw", md: "13.1vw", lg: "9.28vw", xl: "126px" },
     justifyContent: "center",
     alignItems: "center",
-    border: "1px",
+    // border: "1px",
   },
   content: {
-    w: { xl: "1240px" },
-    h: { xl: "509px" },
-    justifyContent: "flex-end",
-    border: "1px",
+    w: { base: "100%", md: "91.15vw", lg: "92.78vw", xl: "1240px" },
+    h: { base: "auto", md: "auto", lg: "auto", xl: "509px" },
+    justifyContent: { base: "center", md: "center", lg: "flex-end" },
+    // border: "1px",
   },
   rightContainer: {
-    w: { xl: "1040px" },
-    h: { xl: "367px" },
+    w: { base: "100%", md: "100%", lg: "68.36vw", xl: "1040px" },
+    h: { base: "93.75vw", md: "39.1vw", lg: "35.16vw", xl: "367px" },
     bg: "dark",
     alignItems: "center",
-    pt: { xl: "35px" },
+    pt: { base: "9.38vw", md: "3.26vw", lg: "3.42vw", xl: "35px" },
   },
   title: {
     w: "100%",
     alignItems: "center",
-    gap: { xl: "20px" },
+    gap: { base: "3.13vw", md: "2.61vw", lg: "1.96vw", xl: "20px" },
     color: "white",
-    fontSize: { xl: "60px" },
+    fontSize: { base: "8.75vw", md: "48px", lg: "4.89vw", xl: "60px" },
     fontWeight: "400",
     lineHeight: "normal",
-    mb: { xl: "23px" },
-    px: { xl: "35px" },
-    border: "1px",
-    borderColor: "white",
+    mb: { base: "6.25vw", md: "3vw", lg: "2.93vw", xl: "23px" },
+    px: { base: "3.13vw", md: "4.56vw", lg: "3.42vw", xl: "35px" },
+    // border: "1px",
+    // borderColor: "white",
   },
   divider: {
-    w: { xl: "305px" },
+    w: { base: "21.88vw", md: "35.16vw", lg: "24.42vw", xl: "305px" },
     h: "1px",
     bg: "white",
   },
   text: {
     maxW: "600px",
     color: "white",
-    fontSize: { xl: "16px" },
+    fontSize: { base: "5vw", md: "16px", lg: "16px", xl: "16px" },
     fontWeight: "400",
     lineHeight: "normal",
+    px: { base: "6.25vw", md: "0" },
+    // border: "1px",
+    // borderColor: "white",
   },
   boxesContainer: {
     alignItems: "center",
-    gap: { xl: "30px" },
-    mt: { xl: "78px" },
+    gap: { base: "3.75vw", md: "3.91vw", lg: "2.93vw", xl: "30px" },
+    mt: { base: "14.1vw", md: "5.86vw", lg: "5.86vw", xl: "78px" },
   },
   box: {
-    w: { xl: "170px" },
-    h: { xl: "170px" },
+    w: { base: "28.13vw", md: "22.14vw", lg: "14.65vw", xl: "170px" },
+    h: { base: "28.13vw", md: "22.14vw", lg: "14.65vw", xl: "170px" },
+    maxW: "170px",
+    maxH: "170px",
     justifyContent: "center",
     alignItems: "center",
-    gap: { xl: "14px" },
+    gap: { base: "4.38vw", md: "1.83vw", lg: "1.37vw", xl: "14px" },
     bg: "white",
     boxShadow: "0px 0px 30px 0px rgba(0, 0, 0, 0.10)",
-    pt: { xl: "35px" },
-    pb: { xl: "46px" },
+    pt: { base: "9.38vw", md: "4.56vw", lg: "3.42vw", xl: "35px" },
+    pb: { base: "9.38vw", md: "5.99vw", lg: "4.5vw", xl: "46px" },
     color: "dark",
-    fontSize: { xl: "18px" },
+    fontSize: { base: "3.8vw", md: "18px", lg: "18px", xl: "18px" },
     fontWeight: "600",
     lineHeight: "normal",
   },
+  icon: {
+    w: { base: "9.38vw", md: "50px" },
+    h: { base: "9.38vw", md: "50px" },
+  },
   leftContainer: {
-    w: { xl: "370px" },
-    h: { xl: "354px" },
+    w: { base: "87.5vw", md: "45.58vw", lg: "27.35vw", xl: "370px" },
+    h: { base: "auto", md: "39.1vw", lg: "27.35vw", xl: "354px" },
     bg: "metaler",
-    bottom: { xl: "0" },
-    left: { xl: "0" },
-    py: { xl: "85px" },
-    px: { xl: "35px" },
+    bottom: { lg: "0", xl: "0" },
+    left: { lg: "0", xl: "0" },
+    py: { base: "14.1vw", md: "5.86vw", lg: "4.4vw", xl: "85px" },
+    px: { base: "6.25vw", md: "4.56vw", lg: "1.95vw", xl: "35px" },
     justifyContent: "center",
     alignItems: "center",
-    gap: { xl: "10px" },
+    gap: { base: "3.13vw", md: "1.31vw", lg: "0.98vw", xl: "10px" },
+    mb: { base: "0", md: "0", lg: "-5.86vw", xl: "0" },
   },
   leftContainerItem: {
     color: "dark",
-    fontSize: { xl: "16px" },
+    fontSize: { base: "4.1vw", md: "16px", lg: "16px", xl: "16px" },
     fontWeight: "400",
     lineHeight: "normal",
   },
@@ -105,7 +115,10 @@ function OurFocus() {
 
   return (
     <Flex {...styles.section}>
-      <Flex {...styles.ourFocusContainer}>
+      <Flex
+        {...styles.ourFocusContainer}
+        direction={{ base: "column", md: "column", lg: "row" }}
+      >
         <Flex {...styles.content} position="relative">
           {/* RIGHT CONTAINER */}
           <Flex {...styles.rightContainer} direction="column">
@@ -117,7 +130,9 @@ function OurFocus() {
             </Flex>
 
             {/* TEXT */}
-            <Text {...styles.text}>{sectionData.text}</Text>
+            <Text {...styles.text} textAlign={{ base: "center", md: "left" }}>
+              {sectionData.text}
+            </Text>
 
             {/* BOXES */}
             <Flex {...styles.boxesContainer}>
@@ -126,7 +141,9 @@ function OurFocus() {
 
                 return (
                   <Flex key={index} {...styles.box} direction="column">
-                    <Icon />
+                    <Flex {...styles.icon}>
+                      <Icon />
+                    </Flex>
                     <Text>{box.text}</Text>
                   </Flex>
                 );
@@ -137,8 +154,9 @@ function OurFocus() {
           {/* LEFT CONTAINER */}
           <Flex
             {...styles.leftContainer}
-            position="absolute"
+            position={{ lg: "absolute" }}
             direction="column"
+            display={{ base: "none", md: "none", lg: "flex" }}
           >
             {sectionData.list.map((item: string, indx: number) => {
               return (
@@ -151,6 +169,25 @@ function OurFocus() {
               );
             })}
           </Flex>
+        </Flex>
+
+        {/* LEFT CONTAINER  - for medium and small screens */}
+        <Flex
+          {...styles.leftContainer}
+          direction="column"
+          display={{ base: "flex", md: "flex", lg: "none" }}
+          mt={{ base: "25vw", md: "15vw" }}
+        >
+          {sectionData.list.map((item: string, indx: number) => {
+            return (
+              <Flex key={indx} {...styles.leftContainerItem}>
+                {/* <IoCheckmark /> */}
+                <Text {...styles.leftContainerItemText} textAlign="center">
+                  {item}
+                </Text>
+              </Flex>
+            );
+          })}
         </Flex>
       </Flex>
     </Flex>

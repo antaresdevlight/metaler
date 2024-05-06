@@ -24,7 +24,7 @@ function Home() {
 
       <MissionVission />
 
-      {/* <OurFocus /> */}
+      <OurFocus />
 
       {/* <OurProducts /> */}
 

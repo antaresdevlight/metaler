@@ -15,7 +15,7 @@ const sitedata = {
       "Ser líder en la comercialización de piezas metálicas, garantizando que nuestros productos sean duraderos y confiable creando relaciones a largo plazo.",
   },
   our_focus: {
-    title: "Nuesto Enfoque",
+    title: "Nuestro Enfoque",
     text: "Somos una empresa dedicada a la realización de moldes para fundición, noyos y la producción de piezas terminadas, para diferentes tipos de industrias con la más alta calidad y los precios más competitivos del mercado.",
     boxes: [
       {
