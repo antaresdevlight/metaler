@@ -26,7 +26,7 @@ function Home() {
 
       <OurFocus />
 
-      {/* <OurProducts /> */}
+      <OurProducts />
 
       {/* <ContactLabel /> */}
     </Flex>

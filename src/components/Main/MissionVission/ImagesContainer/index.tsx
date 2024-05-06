@@ -9,8 +9,8 @@ const styles = {
   container: {
     w: "100%",
     h: "100%",
-    border: "1px",
-    borderColor: "dark",
+    // border: "1px",
+    // borderColor: "dark",
   },
   logo: {
     w: { md: "13vw", lg: "11.72vw", xl: "166px" },
