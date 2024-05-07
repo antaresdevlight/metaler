@@ -1,6 +1,19 @@
+import routes from "./routes";
+
 const sitedata = {
-  header: {},
-  nero: {},
+  header: {
+    menu: [
+      {
+        text: "Home",
+        route: routes.HOME,
+      },
+      {
+        text: "Contact",
+        route: routes.CONTACT,
+      },
+    ],
+  },
+  hero: {},
   us: {
     title: "Nosotros",
     par1: "METALER es una empresa fundada en el 2020, con el objetivo de ser de las más importantes empresas en la industria de la fundición, diseño y fabricación de moldes, noyos y piezas terminadas.",
@@ -80,6 +93,9 @@ const sitedata = {
       },
     ],
   },
+  contact: {
+    title: "Contactanos"
+  }
 };
 
 export default sitedata;

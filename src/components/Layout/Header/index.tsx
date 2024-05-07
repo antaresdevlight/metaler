@@ -14,6 +14,7 @@ import { AiOutlineFacebook, AiOutlineInstagram } from "react-icons/ai";
 
 import logo from "../../../assets/logo.png";
 
+import sitedata from "@/src/constants/sitedata";
 import routes from "@/src/constants/routes";
 
 const styles = {
@@ -84,6 +85,8 @@ const styles = {
 };
 
 function Header() {
+  const sectionData = sitedata.header;
+
   return (
     <Flex {...styles.mainContainer}>
       <Flex {...styles.header}>
@@ -128,19 +131,19 @@ function Header() {
               </svg>
             </MenuButton>
             <MenuList zIndex="overlay">
-              <MenuItem>Download</MenuItem>
-              <MenuItem>
-                <Link
-                  href={routes.CONTACT}
-                  {...styles.menuItemLink}
-                  textDecoration="none"
-                >
-                  Contact
-                </Link>
-              </MenuItem>
-              <MenuItem>Mark as Draft</MenuItem>
-              <MenuItem>Delete</MenuItem>
-              <MenuItem>Attend a Workshop</MenuItem>
+              {sectionData.menu.map((item: any, index: number) => {
+                return (
+                  <MenuItem key={index}>
+                    <Link
+                      href={item.route}
+                      {...styles.menuItemLink}
+                      textDecoration="none"
+                    >
+                      {item.text}
+                    </Link>
+                  </MenuItem>
+                );
+              })}
             </MenuList>
           </Menu>
         </Flex>
