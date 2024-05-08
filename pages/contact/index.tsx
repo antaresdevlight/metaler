@@ -11,10 +11,23 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 
+import sendEmail from "@/src/utils/sendEmail";
+
 import sitedata from "@/src/constants/sitedata";
 import reqStatus from "@/src/constants/reqStatus";
 
 import metaler_contact from "@/src/assets/metaler_contact.jpg";
+
+const INITIAL_STATE = {
+  name: "",
+  email: "",
+  message: "",
+};
+
+const confirmationMessages: { [key: string]: string } = {
+  success: "Gracias por tu mensaje, pronto nos pondremos en contacto contigo.",
+  error: "No se pudo enviar tu mensaje, vuelve a intentarlo.",
+};
 
 const styles = {
   section: {
@@ -84,6 +97,13 @@ const styles = {
     border: "1px",
     borderColor: "dark",
   },
+  confirmationMessage: {
+    color: "dark",
+    fontSize: { base: "16px" },
+    fontWeight: "400",
+    lineHeight: "normal",
+    mb: { base: "25px", md: "20px", lg: "30px" },
+  },
   button: {
     w: { base: "150px", md: "200px" },
     bg: "metaler",
@@ -98,13 +118,19 @@ const styles = {
 function Contact() {
   const sectionData = sitedata.contact;
 
-  const [formState, setFormState] = useState<any>({
-    name: "",
-    email: "",
+  const [formState, setFormState] = useState<any>(INITIAL_STATE);
+
+  const [confirmationMessage, setConfirmationMessage] = useState({
+    show: false,
     message: "",
   });
 
   const handleChange = (params: { field: string; value: string }) => {
+    setConfirmationMessage({
+      show: false,
+      message: "",
+    });
+
     const { field, value } = params;
 
     const formStateCopy = { ...formState };
@@ -116,15 +142,21 @@ function Contact() {
 
   const [status, setStatus] = useState(reqStatus.IDLE);
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
 
     setStatus(reqStatus.IS_LOADING);
 
-    setTimeout(() => {
-      console.log("handleSubmit: ", formState);
-      setStatus(reqStatus.HAS_SUCCESS);
-    }, 500);
+    const { message, sent } = await sendEmail({ formState });
+
+    setStatus(sent ? reqStatus.HAS_SUCCESS : reqStatus.HAS_ERROR);
+
+    setFormState(INITIAL_STATE);
+
+    setConfirmationMessage({
+      show: true,
+      message: sent ? confirmationMessages.success : confirmationMessages.error,
+    });
   };
 
   return (
@@ -192,6 +224,12 @@ function Contact() {
                   }
                 />
               </FormControl>
+
+              {confirmationMessage.show && (
+                <Text {...styles.confirmationMessage}>
+                  {confirmationMessage.message}
+                </Text>
+              )}
 
               <Button
                 {...styles.button}
