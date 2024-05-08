@@ -1,6 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Resend } from "resend";
 
+export const runtime = "edge";
+export const dynamic = "force-dynamic";
+
 const RESEND = process.env.RESEND;
 
 type ResponseData = {
@@ -14,6 +17,7 @@ export default function handler(
 ) {
   try {
     const { name, email, message } = req.body;
+    console.log("req.body: ", req.body);
 
     const resend = new Resend(RESEND);
 
