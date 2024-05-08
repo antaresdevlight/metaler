@@ -2,6 +2,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 import Header from "../src/components/Layout/Header";
 import Footer from "@/src/components/Layout/Footer";
+import PageWrapper from "@/src/components/Layout/PageWrapper";
 
 // 1. Import the extendTheme function
 import { extendTheme } from "@chakra-ui/react";
@@ -36,7 +37,9 @@ function MyApp({ Component, pageProps }) {
     <ChakraProvider theme={theme}>
       <Header />
 
-      <Component {...pageProps} />
+      <PageWrapper>
+        <Component {...pageProps} />
+      </PageWrapper>
 
       <Footer />
     </ChakraProvider>
