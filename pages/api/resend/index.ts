@@ -1,6 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Resend } from "resend";
 
+export const runtime = "edge";
+export const dynamic = "force-dynamic";
+
 const RESEND = process.env.RESEND;
 
 type ResponseData = {
