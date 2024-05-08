@@ -17,6 +17,7 @@ export default function handler(
 ) {
   try {
     const { name, email, message } = req.body;
+    console.log("req.body: ", req.body);
 
     const resend = new Resend(RESEND);
 
