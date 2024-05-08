@@ -4,12 +4,16 @@ const sitedata = {
   header: {
     menu: [
       {
-        text: "Home",
+        text: "Inicio",
         route: routes.HOME,
       },
       {
         text: "Contact",
         route: routes.CONTACT,
+      },
+      {
+        text: "Ubicación",
+        route: routes.MAP,
       },
     ],
   },
@@ -94,8 +98,11 @@ const sitedata = {
     ],
   },
   contact: {
-    title: "Contactanos"
-  }
+    title: "Contactanos",
+  },
+  ubicacion: {
+    title: "Nuestra Ubicación",
+  },
 };
 
 export default sitedata;
