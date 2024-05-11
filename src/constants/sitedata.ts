@@ -8,6 +8,10 @@ const sitedata = {
         route: routes.HOME,
       },
       {
+        text: "Productos",
+        route: routes.PRODUCTS,
+      },
+      {
         text: "Contact",
         route: routes.CONTACT,
       },
@@ -102,6 +106,9 @@ const sitedata = {
   },
   ubicacion: {
     title: "Nuestra Ubicación",
+  },
+  productos: {
+    title: "Productos",
   },
 };
 

@@ -36,7 +36,6 @@ const styles = {
   mapContainer: {
     w: { base: "87.5vw", md: "78.13vw", lg: "87.9vw", xl: "1000px" },
     h: { base: "auto" },
-    selfAlign: "center",
   },
 };
 
