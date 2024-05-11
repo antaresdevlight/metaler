@@ -1,7 +1,8 @@
 const routes = {
   HOME: "/",
-  CONTACT: "/contact",
+  CONTACT: "/contacto",
   MAP: "/ubicacion",
+  PRODUCTS: "/productos",
 };
 
 export default routes;
