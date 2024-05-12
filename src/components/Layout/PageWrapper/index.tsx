@@ -26,7 +26,7 @@ function PageWrapper(props: { children: ReactElement }) {
     setPageInfo(currentPageInfo);
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     getPageInfo();
   }, []);
 
