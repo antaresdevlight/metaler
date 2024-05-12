@@ -6,11 +6,14 @@ import { useRouter } from "next/router";
 import { Box, Flex, Link } from "@chakra-ui/react";
 
 import pagesInfo from "@/src/constants/pagesInfo";
+import sitedata from "@/src/constants/sitedata";
 
 import wa_logo from "@/src/assets/wa_logo.png";
 
 function PageWrapper(props: { children: ReactElement }) {
   const { children } = props;
+
+  const sectionData = sitedata.whatsapp_contacto;
 
   const router = useRouter();
 
@@ -26,15 +29,15 @@ function PageWrapper(props: { children: ReactElement }) {
     setPageInfo(currentPageInfo);
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     getPageInfo();
   }, []);
 
   return (
     <Box w="100%" h="100%" position="relative">
       <Head>
-        <title>{pageInfo?.title}</title>
-        <meta name="description" content={pageInfo?.description} />
+        <title>{pageInfo?.title || "Metaler"}</title>
+        <meta name="description" content={pageInfo?.description || "Metaler"} />
         {/* <link rel="icon" href="../" /> */}
       </Head>
 
@@ -51,7 +54,7 @@ function PageWrapper(props: { children: ReactElement }) {
         zIndex="overlay"
         //boxShadow="0px 0px 80px 0px rgba(0, 0, 0, 0.20)"
       >
-        <Link isExternal href="https://wa.me/7713013483">
+        <Link isExternal href={`https://wa.me/${sectionData?.number}`}>
           <Image src={wa_logo} width={56} height={57} alt="us" />
         </Link>
       </Flex>

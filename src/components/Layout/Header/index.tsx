@@ -17,6 +17,11 @@ import logo from "../../../assets/logo.png";
 import sitedata from "@/src/constants/sitedata";
 import routes from "@/src/constants/routes";
 
+const socialIcons: any = {
+  facebook: AiOutlineFacebook,
+  instagram: AiOutlineInstagram,
+};
+
 const styles = {
   mainContainer: {
     w: "100%",
@@ -92,13 +97,15 @@ function Header() {
       <Flex {...styles.header}>
         {/* SOCIAL ICONS */}
         <Flex {...styles.socialIconContainer}>
-          <Link href="https://chakra-ui.com" isExternal>
-            <AiOutlineFacebook style={styles.socialIcon} />
-          </Link>
+          {sectionData?.socialLinks.map((socialLink: any, index: number) => {
+            const Icon = socialIcons[socialLink?.icon];
 
-          <Link href="https://chakra-ui.com" isExternal>
-            <AiOutlineInstagram style={styles.socialIcon} />
-          </Link>
+            return (
+              <Link key={index} href={socialLink?.link} isExternal>
+                <Icon style={styles.socialIcon} />
+              </Link>
+            );
+          })}
         </Flex>
 
         <Flex {...styles.logoConteiner} position="relative">

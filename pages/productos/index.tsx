@@ -83,7 +83,7 @@ function Products() {
           >
             {sectionData.categories?.map((category: any, index: number) => {
               return (
-                <AccordionItem key={index}>
+                <AccordionItem key={index} py={{ base: "10px", md: "10px" }}>
                   <h2>
                     <AccordionButton>
                       <Box as="span" flex="1" textAlign="left">

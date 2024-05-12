@@ -111,7 +111,7 @@ function Us() {
             <Flex w="100%" justifyContent={{ base: "center", md: "normal" }}>
               <CommonButton
                 text={"Leer Más"}
-                route={routes.CONTACT}
+                route={routes.FAQS}
                 mt={{ base: "20px" }}
               />
             </Flex>

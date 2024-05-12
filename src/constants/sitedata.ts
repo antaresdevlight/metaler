@@ -12,12 +12,26 @@ const sitedata = {
         route: routes.PRODUCTS,
       },
       {
-        text: "Contact",
+        text: "Preguntas Frecuentes",
+        route: routes.FAQS,
+      },
+      {
+        text: "Contacto",
         route: routes.CONTACT,
       },
       {
         text: "Ubicación",
         route: routes.MAP,
+      },
+    ],
+    socialLinks: [
+      {
+        icon: "facebook",
+        link: "https://www.google.com/",
+      },
+      {
+        icon: "instagram",
+        link: "https://www.google.com/",
       },
     ],
   },
@@ -165,6 +179,35 @@ const sitedata = {
         ],
       },
     ],
+  },
+  preguntas_frecuentes: {
+    title: "Preguntas Frecuentes",
+    faqs: [
+      {
+        question: "Pregunta 1",
+        answer: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+        enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat.`,
+      },
+      {
+        question: "Pregunta 2",
+        answer: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+        enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat.`,
+      },
+      {
+        question: "Pregunta 3",
+        answer: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+        enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat.`,
+      },
+    ],
+  },
+  whatsapp_contacto: {
+    number: "7751492233",
   },
 };
 
