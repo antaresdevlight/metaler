@@ -148,7 +148,7 @@ function OurProducts() {
         <Flex w="100%" justifyContent={{ base: "center", md: "normal" }}>
           <CommonButton
             text={"Ver Más"}
-            route={routes.CONTACT}
+            route={routes.PRODUCTS}
             mt={{ base: "15.63vw", md: "13.1vw", lg: "11.72vw", xl: "219px" }}
           />
         </Flex>

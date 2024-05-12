@@ -109,6 +109,62 @@ const sitedata = {
   },
   productos: {
     title: "Productos",
+    categories: [
+      {
+        name: "Categoria 1",
+        description: "consectetur adipiscing elit",
+        products: [
+          {
+            name: "Lorem Ipsum 1",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            image: "https://picsum.photos/300/200",
+          },
+          {
+            name: "Lorem Ipsum 2",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            image: "https://picsum.photos/300/200",
+          },
+          {
+            name: "Lorem Ipsum 3",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            image: "https://picsum.photos/300/200",
+          },
+        ],
+      },
+      {
+        name: "Categoria 2",
+        description: "consectetur adipiscing elit",
+        products: [
+          {
+            name: "Lorem Ipsum 1",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            image: "https://picsum.photos/300/200",
+          },
+          {
+            name: "Lorem Ipsum 2",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            image: "https://picsum.photos/300/200",
+          },
+          {
+            name: "Lorem Ipsum 3",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            image: "https://picsum.photos/300/200",
+          },
+          {
+            name: "Lorem Ipsum 4",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            image: "https://picsum.photos/300/200",
+          },
+        ],
+      },
+    ],
   },
 };
 

@@ -1,4 +1,17 @@
-import { Flex, Text, Divider } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  Text,
+  Divider,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionIcon,
+  AccordionPanel,
+} from "@chakra-ui/react";
+
+import Category from "./Category";
+import ProductCard from "./ProductCard";
 
 import sitedata from "@/src/constants/sitedata";
 
@@ -11,8 +24,8 @@ const styles = {
   },
   products: {
     w: "100%",
-    maxW: "1200px",
-    h: { base: "max-content", md: "max-content", lg: "740px", xl: "740px" },
+    maxW: "1350px",
+    h: { base: "max-content" },
     alignItems: "center",
     mb: { md: "60px", lg: "60px" },
   },
@@ -33,6 +46,20 @@ const styles = {
     h: "1px",
     bg: "dark",
   },
+  categoriesContainer: {
+    w: "100%",
+    gap: { base: "30px", md: "30px" },
+  },
+  productsContainer: {
+    gap: { base: "20px", md: "30px" },
+    alignItems: "center",
+    justifyContent: "center",
+    my: { base: "30px", md: "30px" },
+  },
+  emptyBox: {
+    maxW: { base: "280px", md: "320px" },
+    minW: { base: "280px", md: "320px" },
+  },
 };
 
 function Products() {
@@ -46,6 +73,53 @@ function Products() {
           <Text>{sectionData.title}</Text>
 
           <Divider {...styles.divider} orientation="horizontal" />
+        </Flex>
+
+        <Flex {...styles.categoriesContainer} direction="column">
+          <Accordion
+            defaultIndex={[0]}
+            allowMultiple
+            pb={{ base: "50px", md: "0" }}
+          >
+            {sectionData.categories?.map((category: any, index: number) => {
+              return (
+                <AccordionItem key={index}>
+                  <h2>
+                    <AccordionButton>
+                      <Box as="span" flex="1" textAlign="left">
+                        <Category
+                          name={category?.name}
+                          description={category?.description}
+                        />
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={4}>
+                    <Flex
+                      {...styles.productsContainer}
+                      flexWrap="wrap"
+                      direction={{ base: "column", md: "row" }}
+                    >
+                      {category?.products?.map((product: any, indx: number) => {
+                        return (
+                          <ProductCard
+                            key={indx}
+                            name={product?.name}
+                            description={product?.description}
+                            image={product?.image}
+                          />
+                        );
+                      })}
+
+                      <Flex {...styles.emptyBox} />
+                      <Flex {...styles.emptyBox} />
+                    </Flex>
+                  </AccordionPanel>
+                </AccordionItem>
+              );
+            })}
+          </Accordion>
         </Flex>
       </Flex>
     </Flex>
