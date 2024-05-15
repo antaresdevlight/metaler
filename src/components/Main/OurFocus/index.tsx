@@ -1,4 +1,5 @@
-import { Flex, Text, Divider } from "@chakra-ui/react";
+import { useEffect, useState, useRef } from "react";
+import { Flex, Text, Divider, ScaleFade } from "@chakra-ui/react";
 import { IoCheckmark } from "react-icons/io5";
 
 import Icons from "./Icons";
@@ -113,50 +114,97 @@ const styles = {
 function OurFocus() {
   const sectionData = sitedata.our_focus;
 
-  return (
-    <Flex {...styles.section}>
-      <Flex
-        {...styles.ourFocusContainer}
-        direction={{ base: "column", md: "column", lg: "row" }}
-      >
-        <Flex {...styles.content} position="relative">
-          {/* RIGHT CONTAINER */}
-          <Flex {...styles.rightContainer} direction="column">
-            {/* TITLE */}
-            <Flex {...styles.title}>
-              <Divider {...styles.divider} orientation="horizontal" />
+  const OurFocusRef: any = useRef(null);
 
-              <Text>{sectionData.title}</Text>
+  const [isInView, setIsInView] = useState(false);
+
+  const checkInView = () => {
+    if (!OurFocusRef?.current) return;
+
+    const rect = OurFocusRef.current.getBoundingClientRect();
+
+    //console.log("rect.top: ", rect.top);
+
+    const displayAtHeight = window.innerHeight / 1.5;
+    setIsInView(rect.top < displayAtHeight); // && rect.bottom >= 0
+  };
+
+  useEffect(() => {
+    checkInView();
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("scroll", checkInView);
+    return () => {
+      document.removeEventListener("scroll", checkInView);
+    };
+  }, []);
+
+  return (
+    <ScaleFade initialScale={0.9} in={isInView}>
+      <Flex {...styles.section} ref={OurFocusRef}>
+        <Flex
+          {...styles.ourFocusContainer}
+          direction={{ base: "column", md: "column", lg: "row" }}
+        >
+          <Flex {...styles.content} position="relative">
+            {/* RIGHT CONTAINER */}
+            <Flex {...styles.rightContainer} direction="column">
+              {/* TITLE */}
+              <Flex {...styles.title}>
+                <Divider {...styles.divider} orientation="horizontal" />
+
+                <Text>{sectionData.title}</Text>
+              </Flex>
+
+              {/* TEXT */}
+              <Text {...styles.text} textAlign={{ base: "center", md: "left" }}>
+                {sectionData.text}
+              </Text>
+
+              {/* BOXES */}
+              <Flex {...styles.boxesContainer}>
+                {sectionData.boxes.map((box: any, index: number) => {
+                  const Icon = Icons[box.icon];
+
+                  return (
+                    <Flex key={index} {...styles.box} direction="column">
+                      <Flex {...styles.icon}>
+                        <Icon />
+                      </Flex>
+                      <Text>{box.text}</Text>
+                    </Flex>
+                  );
+                })}
+              </Flex>
             </Flex>
 
-            {/* TEXT */}
-            <Text {...styles.text} textAlign={{ base: "center", md: "left" }}>
-              {sectionData.text}
-            </Text>
-
-            {/* BOXES */}
-            <Flex {...styles.boxesContainer}>
-              {sectionData.boxes.map((box: any, index: number) => {
-                const Icon = Icons[box.icon];
-
+            {/* LEFT CONTAINER */}
+            <Flex
+              {...styles.leftContainer}
+              position={{ lg: "absolute" }}
+              direction="column"
+              display={{ base: "none", md: "none", lg: "flex" }}
+            >
+              {sectionData.list.map((item: string, indx: number) => {
                 return (
-                  <Flex key={index} {...styles.box} direction="column">
-                    <Flex {...styles.icon}>
-                      <Icon />
-                    </Flex>
-                    <Text>{box.text}</Text>
+                  <Flex key={indx} {...styles.leftContainerItem}>
+                    {/* <IoCheckmark /> */}
+                    <Text {...styles.leftContainerItemText} textAlign="center">
+                      {item}
+                    </Text>
                   </Flex>
                 );
               })}
             </Flex>
           </Flex>
 
-          {/* LEFT CONTAINER */}
+          {/* LEFT CONTAINER  - for medium and small screens */}
           <Flex
             {...styles.leftContainer}
-            position={{ lg: "absolute" }}
             direction="column"
-            display={{ base: "none", md: "none", lg: "flex" }}
+            display={{ base: "flex", md: "flex", lg: "none" }}
+            mt={{ base: "25vw", md: "15vw" }}
           >
             {sectionData.list.map((item: string, indx: number) => {
               return (
@@ -170,27 +218,8 @@ function OurFocus() {
             })}
           </Flex>
         </Flex>
-
-        {/* LEFT CONTAINER  - for medium and small screens */}
-        <Flex
-          {...styles.leftContainer}
-          direction="column"
-          display={{ base: "flex", md: "flex", lg: "none" }}
-          mt={{ base: "25vw", md: "15vw" }}
-        >
-          {sectionData.list.map((item: string, indx: number) => {
-            return (
-              <Flex key={indx} {...styles.leftContainerItem}>
-                {/* <IoCheckmark /> */}
-                <Text {...styles.leftContainerItemText} textAlign="center">
-                  {item}
-                </Text>
-              </Flex>
-            );
-          })}
-        </Flex>
       </Flex>
-    </Flex>
+    </ScaleFade>
   );
 }
 

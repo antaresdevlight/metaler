@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { Flex, Text, ScaleFade, Divider } from "@chakra-ui/react";
 
@@ -77,48 +77,94 @@ const styles = {
 function Us() {
   const sectionData = sitedata.us;
 
+  const UsRef: any = useRef(null);
+
+  const [isInView, setIsInView] = useState(false);
+
+  const checkInView = () => {
+    if (!UsRef?.current) return;
+
+    const rect = UsRef.current.getBoundingClientRect();
+
+    //console.log("rect.top: ", rect.top);
+
+    const displayAtHeight = window.innerHeight / 1.5;
+    setIsInView(rect.top < displayAtHeight); // && rect.bottom >= 0
+  };
+
+  useEffect(() => {
+    checkInView();
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("scroll", checkInView);
+    return () => {
+      document.removeEventListener("scroll", checkInView);
+    };
+  }, []);
+
+  if (!isInView) {
+    return (
+      <Flex {...styles.section} ref={UsRef}>
+        <Flex {...styles.us}>
+          {/* DARK CONTAINER */}
+          <Flex
+            {...styles.darkContainer}
+            direction={{ base: "column", lg: "row" }}
+            position="relative"
+          ></Flex>
+        </Flex>
+      </Flex>
+    );
+  }
+
   return (
-    <Flex {...styles.section}>
-      <Flex {...styles.us}>
-        {/* DARK CONTAINER */}
-        <Flex
-          {...styles.darkContainer}
-          direction={{ base: "column", lg: "row" }}
-          position="relative"
-        >
-          {/* TITLE */}
-          <Flex {...styles.title} position={{ md: "relative", lg: "absolute" }}>
-            <Text>{sectionData.title}</Text>
+    <ScaleFade initialScale={0.9} in={isInView}>
+      <Flex {...styles.section} ref={UsRef}>
+        <Flex {...styles.us}>
+          {/* DARK CONTAINER */}
+          <Flex
+            {...styles.darkContainer}
+            direction={{ base: "column", lg: "row" }}
+            position="relative"
+          >
+            {/* TITLE */}
+            <Flex
+              {...styles.title}
+              position={{ md: "relative", lg: "absolute" }}
+            >
+              <Text>{sectionData.title}</Text>
 
-            <Divider {...styles.divider} orientation="horizontal" />
-          </Flex>
+              <Divider {...styles.divider} orientation="horizontal" />
+            </Flex>
 
-          {/* IMAGE */}
-          <Flex {...styles.image}>
-            <Image src={usImg} width={549} height={624} alt="us" />
-          </Flex>
+            {/* IMAGE */}
+            <Flex {...styles.image}>
+              <Image src={usImg} width={549} height={624} alt="us" />
+            </Flex>
 
-          {/* TEXT */}
-          <Flex {...styles.text} direction="column">
-            <Text textAlign={{ base: "center", md: "left" }}>
-              {sectionData.par1}
-            </Text>
+            {/* TEXT */}
+            <Flex {...styles.text} direction="column">
+              <Text textAlign={{ base: "center", md: "left" }}>
+                {sectionData.par1}
+              </Text>
 
-            <Text textAlign={{ base: "center", md: "left" }}>
-              {sectionData.par2}
-            </Text>
+              <Text textAlign={{ base: "center", md: "left" }}>
+                {sectionData.par2}
+              </Text>
 
-            {/* <Flex w="100%" justifyContent={{ base: "center", md: "normal" }}>
+              {/* <Flex w="100%" justifyContent={{ base: "center", md: "normal" }}>
               <CommonButton
                 text={"Leer Más"}
                 route={routes.FAQS}
                 mt={{ base: "20px" }}
               />
             </Flex> */}
+            </Flex>
           </Flex>
         </Flex>
       </Flex>
-    </Flex>
+    </ScaleFade>
   );
 }
 

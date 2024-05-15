@@ -1,5 +1,6 @@
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import { Flex, Text, Divider } from "@chakra-ui/react";
+import { Flex, Text, Divider, ScaleFade } from "@chakra-ui/react";
 
 import CommonButton from "../../Layout/CommonButton";
 
@@ -106,54 +107,82 @@ const styles = {
 function OurProducts() {
   const sectionData = sitedata.our_products;
 
+  const OurProductsRef: any = useRef(null);
+
+  const [isInView, setIsInView] = useState(false);
+
+  const checkInView = () => {
+    if (!OurProductsRef?.current) return;
+
+    const rect = OurProductsRef.current.getBoundingClientRect();
+
+    //console.log("rect.top: ", rect.top);
+
+    const displayAtHeight = window.innerHeight / 1.5;
+    setIsInView(rect.top < displayAtHeight); // && rect.bottom >= 0
+  };
+
+  useEffect(() => {
+    checkInView();
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("scroll", checkInView);
+    return () => {
+      document.removeEventListener("scroll", checkInView);
+    };
+  }, []);
+
   return (
-    <Flex {...styles.section}>
-      <Flex {...styles.ourProductsContainer} direction="column">
-        <Flex {...styles.darkContainer} direction="column">
-          {/* TITLE */}
-          <Flex {...styles.title}>
-            <Divider {...styles.divider} orientation="horizontal" />
+    <ScaleFade initialScale={0.9} in={isInView}>
+      <Flex {...styles.section} ref={OurProductsRef}>
+        <Flex {...styles.ourProductsContainer} direction="column">
+          <Flex {...styles.darkContainer} direction="column">
+            {/* TITLE */}
+            <Flex {...styles.title}>
+              <Divider {...styles.divider} orientation="horizontal" />
 
-            <Text>{sectionData.title}</Text>
+              <Text>{sectionData.title}</Text>
+            </Flex>
+
+            {/* PRODUCTS CONTAINER */}
+            <Flex
+              {...styles.productsContainer}
+              direction={{ base: "column", md: "row" }}
+            >
+              {sectionData.products.map((product: any, index: number) => {
+                return (
+                  <Flex key={index} {...styles.productCard} position="relative">
+                    <Flex {...styles.productName} position="absolute">
+                      <Text>{product.name}</Text>
+                    </Flex>
+
+                    <Image
+                      src={productsImages[product.img]}
+                      width={672}
+                      height={408}
+                      alt="product"
+                    />
+
+                    <Flex {...styles.productDetails} position="absolute">
+                      <Text textAlign="center">{product.details}</Text>
+                    </Flex>
+                  </Flex>
+                );
+              })}
+            </Flex>
           </Flex>
 
-          {/* PRODUCTS CONTAINER */}
-          <Flex
-            {...styles.productsContainer}
-            direction={{ base: "column", md: "row" }}
-          >
-            {sectionData.products.map((product: any, index: number) => {
-              return (
-                <Flex key={index} {...styles.productCard} position="relative">
-                  <Flex {...styles.productName} position="absolute">
-                    <Text>{product.name}</Text>
-                  </Flex>
-
-                  <Image
-                    src={productsImages[product.img]}
-                    width={672}
-                    height={408}
-                    alt="product"
-                  />
-
-                  <Flex {...styles.productDetails} position="absolute">
-                    <Text textAlign="center">{product.details}</Text>
-                  </Flex>
-                </Flex>
-              );
-            })}
+          <Flex w="100%" justifyContent={{ base: "center", md: "normal" }}>
+            <CommonButton
+              text={"Ver Más"}
+              route={routes.PRODUCTS}
+              mt={{ base: "15.63vw", md: "13.1vw", lg: "11.72vw", xl: "219px" }}
+            />
           </Flex>
-        </Flex>
-
-        <Flex w="100%" justifyContent={{ base: "center", md: "normal" }}>
-          <CommonButton
-            text={"Ver Más"}
-            route={routes.PRODUCTS}
-            mt={{ base: "15.63vw", md: "13.1vw", lg: "11.72vw", xl: "219px" }}
-          />
         </Flex>
       </Flex>
-    </Flex>
+    </ScaleFade>
   );
 }
 

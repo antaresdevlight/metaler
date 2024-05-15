@@ -1,5 +1,6 @@
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import { Flex, Text, Divider } from "@chakra-ui/react";
+import { Flex, Text, Divider, ScaleFade } from "@chakra-ui/react";
 
 import ImagesContainer from "./ImagesContainer";
 
@@ -113,66 +114,99 @@ const styles = {
 function MissionVission() {
   const sectionData = sitedata.mission_vission;
 
+  const MissionVissionRef: any = useRef(null);
+
+  const [isInView, setIsInView] = useState(false);
+
+  const checkInView = () => {
+    if (!MissionVissionRef?.current) return;
+
+    const rect = MissionVissionRef.current.getBoundingClientRect();
+
+    //console.log("rect.top: ", rect.top);
+
+    const displayAtHeight = window.innerHeight / 1.5;
+    setIsInView(rect.top < displayAtHeight); // && rect.bottom >= 0
+  };
+
+  useEffect(() => {
+    checkInView();
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("scroll", checkInView);
+    return () => {
+      document.removeEventListener("scroll", checkInView);
+    };
+  }, []);
+
   return (
-    <Flex {...styles.section}>
-      <Flex {...styles.missionVission} direction="column">
-        {/* LOGO */}
-        <Flex {...styles.logo}>
-          <Image src={logo} width={166} height={77} alt="metaler logo" />
-        </Flex>
-
-        {/* TITLE */}
-        <Flex {...styles.title}>
-          <Divider {...styles.divider} orientation="horizontal" />
-
-          <Text>{sectionData.misionTitle}</Text>
-        </Flex>
-
-        {/* TEXT */}
-        <Text
-          {...styles.missionText}
-          textAlign={{ base: "center", lg: "center", xl: "left" }}
-        >
-          {sectionData.misionText}
-        </Text>
-
-        {/* MISSION IMAGE */}
-        <Flex {...styles.missionImage}>
-          <Image src={mission} width={405} height={319} alt="right image" />
-        </Flex>
-
-        {/* IMAGES / VISION */}
-        <Flex {...styles.imagesAndVissionContainer}>
-          {/* IMAGES */}
-          <Flex {...styles.imagesContainer}>
-            <ImagesContainer />
+    <ScaleFade initialScale={0.9} in={isInView}>
+      <Flex {...styles.section} ref={MissionVissionRef}>
+        <Flex {...styles.missionVission} direction="column">
+          {/* LOGO */}
+          <Flex {...styles.logo}>
+            <Image src={logo} width={166} height={77} alt="metaler logo" />
           </Flex>
 
-          {/* VISION */}
-          <Flex {...styles.vissionContainer} direction="column">
-            <Text {...styles.vissionTitle}>{sectionData.visionTitle}</Text>
+          {/* TITLE */}
+          <Flex {...styles.title}>
+            <Divider {...styles.divider} orientation="horizontal" />
 
-            <Flex {...styles.title} display={{ base: "flex", md: "none" }}>
-              <Text>{sectionData.visionTitle}</Text>
+            <Text>{sectionData.misionTitle}</Text>
+          </Flex>
 
-              <Divider {...styles.divider} orientation="horizontal" />
+          {/* TEXT */}
+          <Text
+            {...styles.missionText}
+            textAlign={{ base: "center", lg: "center", xl: "left" }}
+          >
+            {sectionData.misionText}
+          </Text>
+
+          {/* MISSION IMAGE */}
+          <Flex {...styles.missionImage}>
+            <Image src={mission} width={405} height={319} alt="right image" />
+          </Flex>
+
+          {/* IMAGES / VISION */}
+          <Flex {...styles.imagesAndVissionContainer}>
+            {/* IMAGES */}
+            <Flex {...styles.imagesContainer}>
+              <ImagesContainer />
             </Flex>
 
-            <Text
-              {...styles.vissionText}
-              textAlign={{ base: "center", lg: "center", xl: "left" }}
-            >
-              {sectionData.visionText}
-            </Text>
+            {/* VISION */}
+            <Flex {...styles.vissionContainer} direction="column">
+              <Text {...styles.vissionTitle}>{sectionData.visionTitle}</Text>
 
-            {/* VISSION IMAGE */}
-            <Flex {...styles.vissionImage}>
-              <Image src={vission} width={405} height={319} alt="right image" />
+              <Flex {...styles.title} display={{ base: "flex", md: "none" }}>
+                <Text>{sectionData.visionTitle}</Text>
+
+                <Divider {...styles.divider} orientation="horizontal" />
+              </Flex>
+
+              <Text
+                {...styles.vissionText}
+                textAlign={{ base: "center", lg: "center", xl: "left" }}
+              >
+                {sectionData.visionText}
+              </Text>
+
+              {/* VISSION IMAGE */}
+              <Flex {...styles.vissionImage}>
+                <Image
+                  src={vission}
+                  width={405}
+                  height={319}
+                  alt="right image"
+                />
+              </Flex>
             </Flex>
           </Flex>
         </Flex>
       </Flex>
-    </Flex>
+    </ScaleFade>
   );
 }
 
