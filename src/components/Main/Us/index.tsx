@@ -108,13 +108,13 @@ function Us() {
               {sectionData.par2}
             </Text>
 
-            <Flex w="100%" justifyContent={{ base: "center", md: "normal" }}>
+            {/* <Flex w="100%" justifyContent={{ base: "center", md: "normal" }}>
               <CommonButton
                 text={"Leer Más"}
                 route={routes.FAQS}
                 mt={{ base: "20px" }}
               />
-            </Flex>
+            </Flex> */}
           </Flex>
         </Flex>
       </Flex>
