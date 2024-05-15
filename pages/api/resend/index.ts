@@ -11,7 +11,7 @@ type ResponseData = {
   sent?: boolean;
 };
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
@@ -21,7 +21,7 @@ export default function handler(
 
     const resend = new Resend(RESEND);
 
-    resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: "onboarding@resend.dev",
       to: "metalerfundidora@gmail.com",
       subject: `Mensaje de ${email}`,
@@ -32,6 +32,8 @@ export default function handler(
         </div>
       `,
     });
+
+    console.log("send response: ", { data, error });
 
     res.status(200).json({ message: "Email sent", sent: true });
   } catch (error) {
