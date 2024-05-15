@@ -11,10 +11,10 @@ const sitedata = {
         text: "Productos",
         route: routes.PRODUCTS,
       },
-      {
-        text: "Preguntas Frecuentes",
-        route: routes.FAQS,
-      },
+      // {
+      //   text: "Preguntas Frecuentes",
+      //   route: routes.FAQS,
+      // },
       {
         text: "Contacto",
         route: routes.CONTACT,

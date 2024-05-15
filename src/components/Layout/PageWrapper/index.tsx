@@ -38,7 +38,7 @@ function PageWrapper(props: { children: ReactElement }) {
       <Head>
         <title>{pageInfo?.title || "Metaler"}</title>
         <meta name="description" content={pageInfo?.description || "Metaler"} />
-        {/* <link rel="icon" href="../" /> */}
+        <link rel="icon" href="../logo.png" />
       </Head>
 
       {children}
