@@ -28,7 +28,7 @@ export default async function handler(
       html: `
         <div>
             <p>${message}</p>
-            <p>Contactar a ${name} al email ${email}.</p>
+            <p>Contactar a ${name} al email ${email}</p>
         </div>
       `,
     });
