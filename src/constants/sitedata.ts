@@ -29,10 +29,10 @@ const sitedata = {
         icon: "facebook",
         link: "https://www.google.com/",
       },
-      {
-        icon: "instagram",
-        link: "https://www.google.com/",
-      },
+      // {
+      //   icon: "instagram",
+      //   link: "https://www.google.com/",
+      // },
     ],
   },
   hero: {},
@@ -67,16 +67,14 @@ const sitedata = {
       },
     ],
     list: [
-      "BROCAL Y TAPA (Alcantarillado)",
-      "MARCO Y REGILLA ALCANTARILLADO (Alcantarillado)",
-      "MARCO Y TAPA AP (Agua potable)",
-      "COLADERA PLUVIAL (Alcantarillado)",
-      "ARO Y TAPA (Electricidad)",
-      "BROCAL Y TAPA MANHOLE (Telecomunicaciones)",
+      "Alcantarillado",
+      "Agua Potable",
+      "Electricidad",
+      "Telecomunicaciones",
     ],
   },
   our_products: {
-    title: "Nuestros Productos",
+    title: "Nuestros Materiales",
     products: [
       {
         name: "Producto1",
@@ -102,7 +100,7 @@ const sitedata = {
     copy: "Copyright 2024",
     contactInfo: [
       {
-        text: "uriel_vera_@hotmail.com",
+        text: "servicesindustri.ventas@gmail.com",
         icon: "mail",
       },
       {
@@ -125,23 +123,23 @@ const sitedata = {
     title: "Productos",
     categories: [
       {
-        name: "Categoria 1",
+        name: "Alcantarillado",
         description: "consectetur adipiscing elit",
         products: [
           {
-            name: "Lorem Ipsum 1",
+            name: "Brocal",
             description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             image: "https://picsum.photos/300/200",
           },
           {
-            name: "Lorem Ipsum 2",
+            name: "Marco y Rejilla",
             description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             image: "https://picsum.photos/300/200",
           },
           {
-            name: "Lorem Ipsum 3",
+            name: "Coladera Pluvial",
             description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             image: "https://picsum.photos/300/200",
@@ -149,29 +147,11 @@ const sitedata = {
         ],
       },
       {
-        name: "Categoria 2",
+        name: "Agua Potable",
         description: "consectetur adipiscing elit",
         products: [
           {
-            name: "Lorem Ipsum 1",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            image: "https://picsum.photos/300/200",
-          },
-          {
-            name: "Lorem Ipsum 2",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            image: "https://picsum.photos/300/200",
-          },
-          {
-            name: "Lorem Ipsum 3",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            image: "https://picsum.photos/300/200",
-          },
-          {
-            name: "Lorem Ipsum 4",
+            name: "Marco y tapa",
             description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             image: "https://picsum.photos/300/200",

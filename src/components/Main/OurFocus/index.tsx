@@ -1,5 +1,12 @@
 import { useEffect, useState, useRef } from "react";
-import { Flex, Text, Divider, ScaleFade } from "@chakra-ui/react";
+import {
+  Flex,
+  Text,
+  Divider,
+  ScaleFade,
+  UnorderedList,
+  ListItem,
+} from "@chakra-ui/react";
 import { IoCheckmark } from "react-icons/io5";
 
 import Icons from "./Icons";
@@ -103,10 +110,12 @@ const styles = {
     mb: { base: "0", md: "0", lg: "-5.86vw", xl: "0" },
   },
   leftContainerItem: {
+    w: "100%",
     color: "dark",
     fontSize: { base: "4.1vw", md: "16px", lg: "16px", xl: "16px" },
     fontWeight: "400",
     lineHeight: "normal",
+    my: "10px",
   },
   leftContainerItemText: {},
 };
@@ -186,16 +195,17 @@ function OurFocus() {
               direction="column"
               display={{ base: "none", md: "none", lg: "flex" }}
             >
-              {sectionData.list.map((item: string, indx: number) => {
-                return (
-                  <Flex key={indx} {...styles.leftContainerItem}>
-                    {/* <IoCheckmark /> */}
-                    <Text {...styles.leftContainerItemText} textAlign="center">
-                      {item}
-                    </Text>
-                  </Flex>
-                );
-              })}
+              <UnorderedList>
+                {sectionData.list.map((item: string, indx: number) => {
+                  return (
+                    <ListItem key={indx} {...styles.leftContainerItem}>
+                      <Text {...styles.leftContainerItemText} textAlign="left">
+                        {item}
+                      </Text>
+                    </ListItem>
+                  );
+                })}
+              </UnorderedList>
             </Flex>
           </Flex>
 
@@ -206,16 +216,18 @@ function OurFocus() {
             display={{ base: "flex", md: "flex", lg: "none" }}
             mt={{ base: "25vw", md: "15vw" }}
           >
-            {sectionData.list.map((item: string, indx: number) => {
-              return (
-                <Flex key={indx} {...styles.leftContainerItem}>
-                  {/* <IoCheckmark /> */}
-                  <Text {...styles.leftContainerItemText} textAlign="center">
-                    {item}
-                  </Text>
-                </Flex>
-              );
-            })}
+            <UnorderedList>
+              {sectionData.list.map((item: string, indx: number) => {
+                return (
+                  <ListItem key={indx} {...styles.leftContainerItem}>
+                    {/* <IoCheckmark /> */}
+                    <Text {...styles.leftContainerItemText} textAlign="left">
+                      {item}
+                    </Text>
+                  </ListItem>
+                );
+              })}
+            </UnorderedList>
           </Flex>
         </Flex>
       </Flex>

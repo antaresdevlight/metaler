@@ -8,12 +8,7 @@ function Category(props: { name: string; description: string }) {
     <Flex>
       <Avatar src="https://picsum.photos/200/300" />
       <Box ml="3">
-        <Text fontWeight="bold">
-          {name}
-          <Badge ml="1" colorScheme="green">
-            New
-          </Badge>
-        </Text>
+        <Text fontWeight="bold">{name}</Text>
         <Text fontSize="sm">{description}</Text>
       </Box>
     </Flex>
