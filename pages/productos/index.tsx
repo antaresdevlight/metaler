@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import {
   Flex,
   Box,
@@ -14,6 +16,18 @@ import Category from "./Category";
 import ProductCard from "./ProductCard";
 
 import sitedata from "@/src/constants/sitedata";
+
+import prod1 from "@/src/assets/Producto 1.png";
+import prod1_2 from "@/src/assets/Producto 1.2.png";
+import prod1_3 from "@/src/assets/Producto 1.3.png";
+import prod2 from "@/src/assets//Producto 2.png";
+
+const images: any = {
+  "prod-1": prod1,
+  "prod-2": prod1_2,
+  "prod-3": prod1_3,
+  "prod-4": prod2,
+};
 
 const styles = {
   section: {
@@ -108,7 +122,14 @@ function Products() {
                             name={product?.name}
                             description={product?.description}
                             image={product?.image}
-                          />
+                          >
+                            <Image
+                              src={images[product?.id]}
+                              width={549}
+                              height={624}
+                              alt="us"
+                            />
+                          </ProductCard>
                         );
                       })}
 

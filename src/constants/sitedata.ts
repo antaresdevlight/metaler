@@ -27,7 +27,7 @@ const sitedata = {
     socialLinks: [
       {
         icon: "facebook",
-        link: "https://www.google.com/",
+        link: "https://www.facebook.com/share/wYigMM3Fh6bywfPz/?mibextid=JRoKGi",
       },
       // {
       //   icon: "instagram",
@@ -127,18 +127,21 @@ const sitedata = {
         description: "consectetur adipiscing elit",
         products: [
           {
+            id: "prod-1",
             name: "Brocal",
             description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             image: "https://picsum.photos/300/200",
           },
           {
+            id: "prod-2",
             name: "Marco y Rejilla",
             description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             image: "https://picsum.photos/300/200",
           },
           {
+            id: "prod-3",
             name: "Coladera Pluvial",
             description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -151,6 +154,7 @@ const sitedata = {
         description: "consectetur adipiscing elit",
         products: [
           {
+            id: "prod-4",
             name: "Marco y tapa",
             description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",

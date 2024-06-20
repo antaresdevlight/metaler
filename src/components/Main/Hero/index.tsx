@@ -17,7 +17,7 @@ const styles = {
     h: "auto",
     bg: "dark",
     px: { base: "20px", md: "30px", lg: "40px", xl: "62px" },
-    justifyContent: "flex-end",
+    justifyContent: "center",
     // border: "1px",
     // borderColor: "white",
   },
@@ -35,9 +35,10 @@ const styles = {
     // borderColor: "white",
   },
   image: {
-    w: { base: "auto", xl: "1043px" },
-    maxW: "1043px",
+    w: { base: "100%", xl: "1200px" },
+    maxW: "1440px",
     h: { xl: "649px" },
+    justifyContent: "center",
   },
 };
 
@@ -54,16 +55,16 @@ function Hero() {
     <ScaleFade initialScale={0.9} in={isOpen}>
       <Flex {...styles.section}>
         <Flex {...styles.hero} position="relative">
-          <Text
+          {/* <Text
             {...styles.text}
             position="absolute"
             textAlign={{ base: "center", lg: "left" }}
           >
             Fundidora Metaler
-          </Text>
+          </Text> */}
 
           <Flex {...styles.image}>
-            <Image src={heroImg} width={1043} height={649} alt="metaler logo" />
+            <Image src={heroImg} width={1200} height={649} alt="metaler logo" />
           </Flex>
         </Flex>
       </Flex>
