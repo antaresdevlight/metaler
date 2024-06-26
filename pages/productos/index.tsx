@@ -1,4 +1,6 @@
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import {
   Flex,
@@ -10,6 +12,7 @@ import {
   AccordionButton,
   AccordionIcon,
   AccordionPanel,
+  Spinner,
 } from "@chakra-ui/react";
 
 import Category from "./Category";
@@ -27,6 +30,11 @@ const images: any = {
   "prod-2": prod1_2,
   "prod-3": prod1_3,
   "prod-4": prod2,
+};
+
+const indexByPageQuery: { [key: string]: number } = {
+  alcantarillado: 0,
+  "agua-potable": 1,
 };
 
 const styles = {
@@ -79,6 +87,76 @@ const styles = {
 function Products() {
   const sectionData = sitedata.productos;
 
+  const router = useRouter();
+
+  const refCat1 = useRef(null);
+  const refCat2 = useRef(null);
+
+  const accordionItemRefs = [refCat1, refCat2];
+
+  const [defaultIndex, setDefaultIndex] = useState<number | undefined>(
+    undefined
+  );
+
+  const getDefaultIndexFromPageQuery = () => {
+    setDefaultIndex(undefined);
+
+    const query = router?.query?.category as string;
+
+    const index = indexByPageQuery[query] || 0;
+
+    setDefaultIndex(index);
+  };
+
+  useEffect(() => {
+    getDefaultIndexFromPageQuery();
+  }, [router?.query]);
+
+  const scrollTo = () => {
+    if (!defaultIndex) return;
+
+    const refToScrollTo: any = accordionItemRefs[defaultIndex];
+
+    if (refToScrollTo.current) {
+      console.log("refToScrollTo: ", refToScrollTo);
+      refToScrollTo.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  useEffect(() => {
+    scrollTo();
+  }, [defaultIndex]);
+
+  if (defaultIndex === undefined) {
+    return (
+      <Flex {...styles.section} direction="column">
+        <Flex {...styles.products} direction="column">
+          {/* TITLE */}
+          <Flex {...styles.title}>
+            <Text>{sectionData.title}</Text>
+
+            <Divider {...styles.divider} orientation="horizontal" />
+          </Flex>
+
+          <Flex
+            {...styles.categoriesContainer}
+            direction="column"
+            alignItems="center"
+          >
+            <Spinner
+              thickness="4px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="dark"
+              size="xl"
+              my="80px"
+            />
+          </Flex>
+        </Flex>
+      </Flex>
+    );
+  }
+
   return (
     <Flex {...styles.section} direction="column">
       <Flex {...styles.products} direction="column">
@@ -91,13 +169,17 @@ function Products() {
 
         <Flex {...styles.categoriesContainer} direction="column">
           <Accordion
-            defaultIndex={[0]}
+            defaultIndex={[defaultIndex]}
             allowMultiple
             pb={{ base: "50px", md: "0" }}
           >
             {sectionData.categories?.map((category: any, index: number) => {
               return (
-                <AccordionItem key={index} py={{ base: "10px", md: "10px" }}>
+                <AccordionItem
+                  key={index}
+                  py={{ base: "10px", md: "10px" }}
+                  ref={accordionItemRefs[index]}
+                >
                   <h2>
                     <AccordionButton>
                       <Box as="span" flex="1" textAlign="left">
@@ -128,6 +210,7 @@ function Products() {
                               width={549}
                               height={624}
                               alt="us"
+                              placeholder="blur"
                             />
                           </ProductCard>
                         );

@@ -38,7 +38,7 @@ const styles = {
     alignItems: "center",
     px: { base: "20px", md: "30px", lg: "40px", xl: "62px" },
   },
-  logoConteiner: {
+  logoContainer: {
     w: { base: "140px", md: "350px", lg: "500px", xl: "710px" },
     h: "auto",
     justifyContent: "center",
@@ -108,7 +108,7 @@ function Header() {
           })}
         </Flex>
 
-        <Flex {...styles.logoConteiner} position="relative">
+        <Flex {...styles.logoContainer} position="relative">
           <Divider
             {...styles.divider}
             orientation="horizontal"

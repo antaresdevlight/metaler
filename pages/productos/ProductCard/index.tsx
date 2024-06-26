@@ -37,7 +37,6 @@ function ProductCard(props: {
           borderRadius="lg"
           overflow="hidden"
           justifyContent="center"
-          bg="blue.100"
         >
           {children}
         </Flex>
