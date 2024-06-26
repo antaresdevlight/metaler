@@ -10,6 +10,13 @@ const sitedata = {
       {
         text: "Productos",
         route: routes.PRODUCTS,
+        options: [
+          {
+            text: "Alcantarillado",
+            route: routes.ALCANTARILLADO,
+          },
+          { text: "Agua Potable", route: routes.AGUA_POTABLE },
+        ],
       },
       // {
       //   text: "Preguntas Frecuentes",
