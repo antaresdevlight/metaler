@@ -7,9 +7,9 @@ import CommonButton from "../../Layout/CommonButton";
 import sitedata from "@/src/constants/sitedata";
 import routes from "@/src/constants/routes";
 
-import prod1 from "../../../assets/prod1.png";
-import prod2 from "../../../assets/prod2.png";
-import prod3 from "../../../assets/prod3.png";
+import prod1 from "@/src/assets/Producto 1.png";
+import prod2 from "@/src/assets/Producto 1.2.png";
+import prod3 from "@/src/assets//Producto 2.png";
 
 const productsImages: any = {
   prod1: prod1,

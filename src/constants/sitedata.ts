@@ -84,17 +84,17 @@ const sitedata = {
     title: "Nuestros Materiales",
     products: [
       {
-        name: "Producto1",
+        name: "Brocal",
         details: "Amet eu facilisi posuere ut at cras non ipsum proin",
         img: "prod1",
       },
       {
-        name: "Producto2",
+        name: "Marco y Rejilla",
         details: "Emu facilisi posuere ut at cras non ipsum proin",
         img: "prod2",
       },
       {
-        name: "Producto3",
+        name: "Marco y Tapa",
         details: "Fasacilisi posuere ut at cras non ipsum proin",
         img: "prod3",
       },
@@ -162,7 +162,7 @@ const sitedata = {
         products: [
           {
             id: "prod-4",
-            name: "Marco y tapa",
+            name: "Marco y Tapa",
             description:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             image: "https://picsum.photos/300/200",
