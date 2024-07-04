@@ -5,6 +5,7 @@ import Image from "next/image";
 import {
   Flex,
   Link,
+  Text,
   Menu,
   MenuButton,
   MenuList,
@@ -13,12 +14,10 @@ import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-  PopoverHeader,
   PopoverBody,
-  PopoverFooter,
   PopoverArrow,
-  PopoverCloseButton,
-  PopoverAnchor,
+  useDisclosure,
+  Fade,
 } from "@chakra-ui/react";
 
 import { AiOutlineFacebook, AiOutlineInstagram } from "react-icons/ai";
@@ -136,6 +135,8 @@ const styles = {
 function HeaderV2() {
   const sectionData = sitedata.header;
 
+  const { isOpen, onToggle } = useDisclosure();
+
   return (
     <Flex {...styles.mainContainer} direction="column">
       <Flex {...styles.header}>
@@ -236,16 +237,58 @@ function HeaderV2() {
               <MenuList zIndex="overlay">
                 {sectionData.menu.map((item: any, index: number) => {
                   return (
-                    <MenuItem key={index}>
-                      <Link
-                        as={NextLink}
-                        href={item.route}
-                        {...styles.menuItemLink}
-                        textDecoration="none"
-                      >
-                        {item.text}
-                      </Link>
-                    </MenuItem>
+                    <Fragment key={index}>
+                      {!item?.options && (
+                        <MenuItem onClick={onToggle}>
+                          <Link
+                            as={NextLink}
+                            href={item.route}
+                            {...styles.menuItemLink}
+                            textDecoration="none"
+                          >
+                            {item.text}
+                          </Link>
+                        </MenuItem>
+                      )}
+
+                      {item?.options && (
+                        <Flex direction="column">
+                          <Text
+                            {...styles.menuItemLink}
+                            px="10px"
+                            onClick={onToggle}
+                          >
+                            {item.text}
+                          </Text>
+
+                          <Fade in={isOpen}>
+                            <Flex
+                              direction="column"
+                              display={isOpen ? "flex" : "none"}
+                            >
+                              {item?.options.map(
+                                (option: any, indx: number) => {
+                                  return (
+                                    <Link
+                                      key={indx}
+                                      as={NextLink}
+                                      href={option.route}
+                                      {...styles.menuItemLink}
+                                      textDecoration="none"
+                                      fontSize="15px"
+                                      px="30px"
+                                      py="5px"
+                                    >
+                                      {option.text}
+                                    </Link>
+                                  );
+                                }
+                              )}
+                            </Flex>
+                          </Fade>
+                        </Flex>
+                      )}
+                    </Fragment>
                   );
                 })}
               </MenuList>
