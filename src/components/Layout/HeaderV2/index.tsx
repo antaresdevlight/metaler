@@ -18,9 +18,11 @@ import {
   PopoverArrow,
   useDisclosure,
   Fade,
+  Portal,
 } from "@chakra-ui/react";
 
 import { AiOutlineFacebook, AiOutlineInstagram } from "react-icons/ai";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 import sitedata from "@/src/constants/sitedata";
 import routes from "@/src/constants/routes";
@@ -130,6 +132,10 @@ const styles = {
     color: "dark",
     _hover: { textDecoration: "none", bg: "gray.200" },
   },
+  itemWithOptions: {
+    alignItems: "center",
+    gap: "10px",
+  },
 };
 
 function HeaderV2() {
@@ -172,33 +178,52 @@ function HeaderV2() {
                 <Fragment key={index}>
                   {item?.options && (
                     <Popover>
-                      <PopoverTrigger>
-                        <Button variant="unstyled" {...styles.menuDesktopLink}>
-                          {item.text}
-                        </Button>
-                      </PopoverTrigger>
-                      <PopoverContent {...styles.optionsContainer}>
-                        <PopoverArrow />
+                      {({ isOpen, onClose }) => (
+                        <>
+                          <PopoverTrigger>
+                            <Button
+                              variant="unstyled"
+                              {...styles.menuDesktopLink}
+                            >
+                              <Flex {...styles.itemWithOptions}>
+                                <Text>{item.text}</Text>
 
-                        <PopoverBody {...styles.menuDesktopOptionsList}>
-                          <Flex direction="column">
-                            {item?.options.map((option: any, indx: number) => {
-                              return (
-                                <Link
-                                  key={indx}
-                                  as={NextLink}
-                                  href={option.route}
-                                  {...styles.menuDesktopOptionsListOption}
-                                  textDecoration="none"
-                                  textAlign="center"
-                                >
-                                  {option.text}
-                                </Link>
-                              );
-                            })}
-                          </Flex>
-                        </PopoverBody>
-                      </PopoverContent>
+                                {!isOpen ? (
+                                  <IoIosArrowDown />
+                                ) : (
+                                  <IoIosArrowUp />
+                                )}
+                              </Flex>
+                            </Button>
+                          </PopoverTrigger>
+                          <Portal>
+                            <PopoverContent {...styles.optionsContainer}>
+                              <PopoverArrow />
+
+                              <PopoverBody {...styles.menuDesktopOptionsList}>
+                                <Flex direction="column">
+                                  {item?.options.map(
+                                    (option: any, indx: number) => {
+                                      return (
+                                        <Link
+                                          key={indx}
+                                          as={NextLink}
+                                          href={option.route}
+                                          {...styles.menuDesktopOptionsListOption}
+                                          textDecoration="none"
+                                          textAlign="center"
+                                        >
+                                          {option.text}
+                                        </Link>
+                                      );
+                                    }
+                                  )}
+                                </Flex>
+                              </PopoverBody>
+                            </PopoverContent>
+                          </Portal>
+                        </>
+                      )}
                     </Popover>
                   )}
 
@@ -253,13 +278,18 @@ function HeaderV2() {
 
                       {item?.options && (
                         <Flex direction="column">
-                          <Text
-                            {...styles.menuItemLink}
-                            px="10px"
+                          <Flex
+                            w="100%"
+                            pr="40%"
+                            {...styles.itemWithOptions}
                             onClick={onToggle}
                           >
-                            {item.text}
-                          </Text>
+                            <Text {...styles.menuItemLink} px="10px">
+                              {item.text}
+                            </Text>
+
+                            {!isOpen ? <IoIosArrowDown /> : <IoIosArrowUp />}
+                          </Flex>
 
                           <Fade in={isOpen}>
                             <Flex
