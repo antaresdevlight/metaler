@@ -100,6 +100,31 @@ const sitedata = {
       },
     ],
   },
+  our_values: {
+    title: "Nuestros Valores",
+    values: [
+      {
+        name: "Trabajo en equipo",
+        details: "Trabajamos sumando esfuerzos y multilpicando logros.",
+        img: "prod1",
+      },
+      {
+        name: "Confianza",
+        details: "Cultivamos cada relación con integridad.",
+        img: "prod2",
+      },
+      {
+        name: "Efectividad",
+        details: "Ejecutamos con precisión y excelencia.",
+        img: "prod3",
+      },
+      {
+        name: "Responsabilidad",
+        details: "Nos entregamos en lo que hacemos.",
+        img: "prod1",
+      },
+    ],
+  },
   contact_label: {
     title: "Contacto",
   },

@@ -7,6 +7,10 @@ import OurFocus from "@/src/components/Main/OurFocus";
 import OurProducts from "@/src/components/Main/OurProducts";
 import ContactLabel from "@/src/components/Main/ContactLabel";
 
+import UsV2 from "@/src/components/Main/UsV2";
+import OurValues from "@/src/components/Main/OurValues";
+import MissionVissionV2 from "@/src/components/Main/MissionVissionV2";
+
 const styles = {
   page: {
     w: "100%",
@@ -20,13 +24,15 @@ function Home() {
     <Flex {...styles.page} direction="column">
       <Hero />
 
-      <Us />
+      <UsV2 />
 
-      <MissionVission />
+      {/* <Us /> */}
+
+      <MissionVissionV2 />
 
       <OurFocus />
 
-      <OurProducts />
+      <OurValues />
 
       <ContactLabel />
     </Flex>
