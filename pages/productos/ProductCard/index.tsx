@@ -41,8 +41,10 @@ function ProductCard(props: {
           {children}
         </Flex>
         <Stack mt="6" spacing="3">
-          <Heading size="md">{name}</Heading>
-          <Text>{description}</Text>
+          <Heading size="md" textAlign="center">
+            {name}
+          </Heading>
+          {/* <Text>{description}</Text> */}
           {/* <Text color="blue.600" fontSize="2xl">
             $450
           </Text> */}

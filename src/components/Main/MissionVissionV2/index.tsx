@@ -21,7 +21,7 @@ const styles = {
     w: "100%",
     maxW: "1440px",
     h: "auto",
-    pt: { base: "12vw", md: "13vw", lg: "9vw", xl: "60px" },
+    pt: { base: "10vw", md: "10vw", lg: "9vw", xl: "40px" },
     px: { base: "4.69vw", md: "3.91vw", lg: "2.44vw", xl: "10px" },
     justifyContent: "flex-start",
     alignItems: { base: "center", md: "center", lg: "center" },

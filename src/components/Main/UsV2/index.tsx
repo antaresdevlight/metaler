@@ -1,13 +1,14 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import { Flex, Text, ScaleFade, Divider } from "@chakra-ui/react";
+import { Flex, Text, ScaleFade, Box } from "@chakra-ui/react";
 
-import CommonButton from "../../Layout/CommonButton";
+import { motion } from "framer-motion";
 
-import usImg from "../../../assets/us.png";
+const MotionBox = motion(Box);
 
 import sitedata from "@/src/constants/sitedata";
-import routes from "@/src/constants/routes";
+
+import heroImg from "../../../assets/metaler_contact.jpg";
 
 const styles = {
   section: {
@@ -20,24 +21,30 @@ const styles = {
     w: "100%",
     maxW: "1440px",
     h: { base: "max-content", md: "max-content" },
-    justifyContent: { lg: "center", xl: "fcenter" },
+    justifyContent: { lg: "center", xl: "center" },
+    pb: "30px",
   },
   darkContainer: {
-    w: { base: "100%", md: "100%", lg: "91%", xl: "91%" },
-    alignItems: { base: "center", md: "center", lg: "center", xl: "center" },
-    bg: "white",
-    pt: { base: "21.88vw", md: "7.82vw", lg: "7.82vw", xl: "135px" },
-    pb: { base: "21.88vw", md: "7.82vw", lg: "7.82vw", xl: "135px" },
+    w: "100%",
+    h: "100%",
+    alignItems: "center",
+    justifyContent: "center",
   },
   text: {
-    w: { lg: "auto", xl: "630px" },
-    maxW: { base: "87.5vw", md: "87.24vw", lg: "48.83vw", xl: "630px" },
+    w: "85vw",
+    maxW: "1100px",
     gap: { base: "7.82vw", md: "2.61vw", lg: "2vw", xl: "35px" },
     color: "usDark",
-    fontSize: { md: "20px", lg: "24pxpx", xl: "28px" },
+    fontSize: { base: "24px", md: "28px", lg: "34px", xl: "38px" },
     fontWeight: "600",
-    lineHeight: "normal",
-    p: { base: "1.57vw", md: "3.26vw", lg: "1.47vw", xl: "0" },
+    lineHeight: "1.7",
+    p: "2vw",
+  },
+  image: {
+    w: "100%",
+    maxW: "1440px",
+    h: { base: "900px", md: "auto", xl: "800px" },
+    justifyContent: "center",
   },
 };
 
@@ -89,29 +96,30 @@ function UsV2() {
     <ScaleFade initialScale={0.9} in={isInView}>
       <Flex {...styles.section} ref={UsRef}>
         <Flex {...styles.us}>
-          {/* DARK CONTAINER */}
-          <Flex
-            {...styles.darkContainer}
-            direction="column"
-            position="relative"
-          >
-            {/* TEXT */}
-            <Flex {...styles.text} direction="column">
-              <Text textAlign={{ base: "center", md: "center" }}>
-                {sectionData.par1}
-              </Text>
+          <Flex {...styles.image} position="relative">
+            <Image
+              src={heroImg}
+              width={1440}
+              height={800}
+              alt="metaler logo"
+              style={{ opacity: 0.06 }}
+            />
 
-              <Text textAlign={{ base: "center", md: "center" }}>
-                {sectionData.par2}
-              </Text>
+            {/* TEXT CONTAINER */}
+            <Flex
+              {...styles.darkContainer}
+              direction="column"
+              position="absolute"
+            >
+              <Flex {...styles.text} direction="column">
+                <Text textAlign={{ base: "center", md: "center" }}>
+                  {sectionData.par1}
+                </Text>
 
-              {/* <Flex w="100%" justifyContent={{ base: "center", md: "normal" }}>
-              <CommonButton
-                text={"Leer Más"}
-                route={routes.FAQS}
-                mt={{ base: "20px" }}
-              />
-            </Flex> */}
+                <Text textAlign={{ base: "center", md: "center" }}>
+                  {sectionData.par2}
+                </Text>
+              </Flex>
             </Flex>
           </Flex>
         </Flex>
