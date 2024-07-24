@@ -15,7 +15,7 @@ const styles = {
     maxW: "1440px",
     h: "auto",
     justifyContent: { base: "center", md: "flex-end" },
-    py: { base: "12vw", md: "5.5vw", lg: "6vw", xl: "77px" },
+    py: { base: "12vw", md: "5vw", lg: "5vw", xl: "50px" },
     //border: "1px",
   },
   title: {
