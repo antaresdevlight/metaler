@@ -106,22 +106,22 @@ const sitedata = {
       {
         name: "Trabajo en equipo",
         details: "Trabajamos sumando esfuerzos y multilpicando logros.",
-        img: "prod1",
+        icon: "team",
       },
       {
         name: "Confianza",
         details: "Cultivamos cada relación con integridad.",
-        img: "prod2",
+        icon: "confidence",
       },
       {
         name: "Efectividad",
         details: "Ejecutamos con precisión y excelencia.",
-        img: "prod3",
+        icon: "efectivness",
       },
       {
         name: "Responsabilidad",
         details: "Nos entregamos en lo que hacemos.",
-        img: "prod1",
+        icon: "responsability",
       },
     ],
   },

@@ -10,6 +10,7 @@ import ContactLabel from "@/src/components/Main/ContactLabel";
 import UsV2 from "@/src/components/Main/UsV2";
 import OurValues from "@/src/components/Main/OurValues";
 import MissionVissionV2 from "@/src/components/Main/MissionVissionV2";
+import OurValuesV2 from "@/src/components/Main/OurValuesV2";
 
 const styles = {
   page: {
@@ -32,7 +33,9 @@ function Home() {
 
       <OurFocus />
 
-      <OurValues />
+      <OurValuesV2 />
+
+      {/* <OurValues /> */}
 
       <ContactLabel />
     </Flex>
