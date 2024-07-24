@@ -36,10 +36,10 @@ const styles = {
     w: "100%",
     h: "max-content",
     alignItems: "center",
-    gap: { base: "4.69vw", md: "2.61vw", lg: "1.96vw", xl: "20px" },
+    gap: { base: "5px", md: "10px", lg: "15px", xl: "20px" },
     color: "white",
-    fontSize: { base: "7.19vw", md: "6.52vw", lg: "5.86vw", xl: "60px" },
-    fontWeight: "400",
+    fontSize: { base: "35px", md: "35px", lg: "45px", xl: "60px" },
+    fontWeight: "500",
     lineHeight: "normal",
     mb: { base: "0", md: "0", lg: "0px", xl: "0px" },
     px: { base: "3.13vw", md: "2.61vw", lg: "2.45vw", xl: "0px" },
@@ -48,7 +48,8 @@ const styles = {
     // borderColor: "white",
   },
   divider: {
-    w: { base: "25vw", md: "35.16vw", lg: "29.79vw", xl: "305px" },
+    w: { base: "20vw", md: "30vw", lg: "30vw", xl: "305px" },
+    display: { base: "none", md: "flex" },
     h: "1px",
     bg: "white",
   },
@@ -121,7 +122,9 @@ function OurValuesV2() {
           <Flex {...styles.title}>
             <Divider {...styles.divider} orientation="horizontal" />
 
-            <Text>{sectionData.title}</Text>
+            <Text w={{ base: "100%", md: "auto" }} textAlign="center">
+              {sectionData.title}
+            </Text>
           </Flex>
 
           {/* VALUES */}
