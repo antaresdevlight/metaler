@@ -27,7 +27,7 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import sitedata from "@/src/constants/sitedata";
 import routes from "@/src/constants/routes";
 
-import logo from "../../../assets/logo.png";
+import logo from "../../../assets/logo_1.png";
 
 const socialIcons: any = {
   facebook: AiOutlineFacebook,
@@ -70,9 +70,10 @@ const styles = {
     //bg: "blue.100",
   },
   logo: {
-    w: { base: "115px", md: "145px" },
+    w: { base: "100px", md: "100px" },
     h: "auto",
     zIndex: "overlay",
+    borderRadius: "15px",
   },
   rightContainer: {
     w: { base: "20%", lg: "35%" },
@@ -162,9 +163,9 @@ function HeaderV2() {
         {/* CENTER */}
         <Flex {...styles.centerContainer}>
           {/* LOGO - MOBILE */}
-          <Flex {...styles.logo}>
+          <Flex {...styles.logo} overflow="hidden">
             <Link as={NextLink} href={routes.HOME}>
-              <Image src={logo} width={145} height={57} alt="metaler logo" />
+              <Image src={logo} width={100} height={20} alt="metaler logo" />
             </Link>
           </Flex>
         </Flex>
