@@ -1,12 +1,12 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import { Flex, Text, Divider, ScaleFade } from "@chakra-ui/react";
+import { Flex, Text, Divider, ScaleFade, border } from "@chakra-ui/react";
 
 import ImagesContainer from "./ImagesContainer";
 
 import sitedata from "@/src/constants/sitedata";
 
-import logo from "../../../assets/logo.png";
+import logo from "../../../assets/logo_1.png";
 import mission from "../../../assets/mission.png";
 import vission from "../../../assets/vission.png";
 
@@ -50,12 +50,15 @@ const styles = {
     mt: { base: "3.13vw", md: "2.61vw", lg: "1.96vw", xl: "0px" },
   },
   logo: {
-    display: { base: "flex", md: "none" },
-    w: "51.88vw",
+    display: { base: "flex", md: "flex" },
+    w: "220px",
     h: "auto",
-    mb: "30px",
+    mt: "10px",
+    mb: { base: "30px", md: "50px", lg: "70px" },
     justifyContent: "center",
-    // border: "1px",
+    borderRadius: "15px",
+    border: "1px",
+    borderColor: "gray.200",
   },
   missionImage: {
     display: { base: "flex", md: "flex" },
@@ -107,8 +110,8 @@ function MissionVissionV2() {
       <Flex {...styles.section} ref={MissionVissionRef}>
         <Flex {...styles.missionVission} direction="column">
           {/* LOGO */}
-          <Flex {...styles.logo}>
-            <Image src={logo} width={166} height={77} alt="metaler logo" />
+          <Flex {...styles.logo} overflow="hidden">
+            <Image src={logo} width={220} height={80} alt="metaler logo" />
           </Flex>
 
           {/* MISSION TITLE */}
