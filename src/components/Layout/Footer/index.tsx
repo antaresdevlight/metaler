@@ -9,7 +9,7 @@ import {
 
 import sitedata from "@/src/constants/sitedata";
 
-import logo from "../../../assets/logo.png";
+import logo from "../../../assets/logo_1.png";
 
 import routes from "@/src/constants/routes";
 
@@ -57,12 +57,13 @@ const styles = {
     // borderColor: "white",
   },
   logo: {
-    w: { base: "125px", xl: "125px" },
+    w: { base: "110px", xl: "110px" },
     h: "auto",
     zIndex: "overlay",
+    borderRadius: "15px",
   },
   divider: {
-    w: { base: "200px", xl: "213px" },
+    w: { base: "200px", xl: "228px" },
     h: "1px",
     bg: "metaler",
     left: "0",
@@ -113,9 +114,9 @@ function Footer() {
             position="absolute"
           />
 
-          <Flex {...styles.logo}>
+          <Flex {...styles.logo} overflow="hidden">
             <Link href={routes.HOME}>
-              <Image src={logo} width={125} height={43} alt="metaler logo" />
+              <Image src={logo} width={110} height={20} alt="metaler logo" />
             </Link>
           </Flex>
         </Flex>
