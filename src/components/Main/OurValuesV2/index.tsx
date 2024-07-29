@@ -153,7 +153,7 @@ function OurValuesV2() {
 
         <Flex w="100%" justifyContent={{ base: "center", md: "normal" }}>
           <CommonButton
-            text={"Ver Más"}
+            text={"Ver Productos"}
             route={routes.PRODUCTS}
             mt={{ base: "15vw", md: "13vw", lg: "11vw", xl: "130px" }}
           />
