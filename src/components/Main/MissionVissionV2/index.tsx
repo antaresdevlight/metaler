@@ -6,7 +6,7 @@ import ImagesContainer from "./ImagesContainer";
 
 import sitedata from "@/src/constants/sitedata";
 
-import logo from "../../../assets/logo_1.png";
+import logo from "../../../assets/logo.png";
 import mission from "../../../assets/mission.png";
 import vission from "../../../assets/vission.png";
 
@@ -56,9 +56,9 @@ const styles = {
     mt: "10px",
     mb: { base: "30px", md: "50px", lg: "70px" },
     justifyContent: "center",
-    borderRadius: "15px",
-    border: "1px",
-    borderColor: "gray.200",
+    borderRadius: "5px",
+    // border: "1px",
+    // borderColor: "gray.200",
   },
   missionImage: {
     display: { base: "flex", md: "flex" },
