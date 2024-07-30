@@ -9,7 +9,7 @@ import {
 
 import sitedata from "@/src/constants/sitedata";
 
-import logo from "../../../assets/logo_1.png";
+import logo from "../../../assets/logo.png";
 
 import routes from "@/src/constants/routes";
 
@@ -60,7 +60,7 @@ const styles = {
     w: { base: "110px", xl: "110px" },
     h: "auto",
     zIndex: "overlay",
-    borderRadius: "15px",
+    borderRadius: "5px",
   },
   divider: {
     w: { base: "200px", xl: "228px" },
