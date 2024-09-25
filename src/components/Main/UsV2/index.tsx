@@ -113,11 +113,17 @@ function UsV2() {
             >
               <Flex {...styles.text} direction="column">
                 <Text textAlign={{ base: "center", md: "center" }}>
-                  {sectionData.par1}
+                  METALER es una empresa fundada en el 2020, con el objetivo de
+                  ser de las más importantes empresas en la industria de la
+                  fundición, diseño y fabricación de moldes, noyos y piezas
+                  terminadas.
                 </Text>
 
                 <Text textAlign={{ base: "center", md: "center" }}>
-                  {sectionData.par2}
+                  "Somos expertos ofreciendo soluciones para redes de
+                  abastecimiento de agua, alcantarillado, servicios públicos,
+                  pluviales, redes de telecomunicaciones, pesas y equipos para
+                  gimnasio.",
                 </Text>
               </Flex>
             </Flex>
