@@ -22,10 +22,9 @@ function catalogo() {
           </Text>
         </Flex>
 
-        <Flex border="1px" marginTop="40px" w="450px">
-          <Text>
-            Learn from expert professionals and join the largest online
-            community for creatives.
+        <Flex  marginTop="40px" w="450px">
+          <Text fontSize="20px">
+           Nuestro catalogo cuenta con moldes, noyos y piezas terminadas
           </Text>
         </Flex>
 
