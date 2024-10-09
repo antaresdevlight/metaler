@@ -120,7 +120,7 @@ function UsV2() {
                 </Text>
 
                 <Text textAlign={{ base: "center", md: "center" }}>
-                  "Somos expertos ofreciendo soluciones para redes de
+                  Somos expertos ofreciendo soluciones para redes de
                   abastecimiento de agua, alcantarillado, servicios públicos,
                   pluviales, redes de telecomunicaciones, pesas y equipos para
                   gimnasio.
