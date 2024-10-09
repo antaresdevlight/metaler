@@ -48,7 +48,7 @@ function ContactLabel() {
         {/* TITLE */}
         <Flex {...styles.title}>
           <Link href={routes.CONTACT} _hover={{ textDecoration: "none" }}>
-            <Text>{sectionData.title}</Text>
+            <Text>Contacto</Text>
           </Link>
 
           <Divider {...styles.divider} orientation="horizontal" />

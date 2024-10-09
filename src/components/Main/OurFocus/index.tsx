@@ -163,12 +163,12 @@ function OurFocus() {
               <Flex {...styles.title}>
                 <Divider {...styles.divider} orientation="horizontal" />
 
-                <Text>{sectionData.title}</Text>
+                <Text>Nuestro Enfoque</Text>
               </Flex>
 
               {/* TEXT */}
               <Text {...styles.text} textAlign={{ base: "center", md: "left" }}>
-                {sectionData.text}
+              Somos una empresa dedicada a la realización de moldes para fundición, noyos y la producción de piezas terminadas, para diferentes tipos de industrias con la más alta calidad y los precios más competitivos del mercado.
               </Text>
 
               {/* BOXES */}

@@ -118,7 +118,7 @@ function MissionVissionV2() {
           <Flex {...styles.title}>
             <Divider {...styles.divider} orientation="horizontal" />
 
-            <Text>{sectionData.misionTitle}</Text>
+            <Text>Misión</Text>
           </Flex>
 
           {/* MISSION TEXT */}
@@ -126,7 +126,7 @@ function MissionVissionV2() {
             {...styles.missionText}
             textAlign={{ base: "center", lg: "center", xl: "center" }}
           >
-            {sectionData.misionText}
+            Nuestra misión es satisfacer las necesidades del cliente con excelentes productos, con excelente calidad y resistencia.
           </Text>
 
           {/* MISSION IMAGE */}
@@ -142,7 +142,7 @@ function MissionVissionV2() {
           >
             <Divider {...styles.divider} orientation="horizontal" />
 
-            <Text>{sectionData.visionTitle}</Text>
+            <Text>Visión</Text>
           </Flex>
 
           {/* VISION TEXT */}
@@ -150,7 +150,7 @@ function MissionVissionV2() {
             {...styles.missionText}
             textAlign={{ base: "center", lg: "center", xl: "center" }}
           >
-            {sectionData.visionText}
+            Ser líder en la comercialización de piezas metálicas, garantizando que nuestros productos sean duraderos y confiable creando relaciones a largo plazo.
           </Text>
 
           {/* VISION IMAGE */}

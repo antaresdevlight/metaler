@@ -22,13 +22,13 @@ function catalogo() {
           </Text>
         </Flex>
 
-        <Flex  marginTop="40px" w="450px">
+        <Flex  marginTop="30px" w="450px">
           <Text fontSize="20px">
            Nuestro catalogo cuenta con moldes, noyos y piezas terminadas
           </Text>
         </Flex>
 
-        <Flex marginTop="40px">
+        <Flex marginTop="30px">
           <Button backgroundColor="black" color="white" variant="unstyled" w="220px">
             Descargar Catalogo
           </Button>

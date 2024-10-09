@@ -123,7 +123,7 @@ function OurValuesV2() {
             <Divider {...styles.divider} orientation="horizontal" />
 
             <Text w={{ base: "100%", md: "auto" }} textAlign="center">
-              {sectionData.title}
+            Nuestros Valores
             </Text>
           </Flex>
 

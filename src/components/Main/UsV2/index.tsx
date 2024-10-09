@@ -123,7 +123,7 @@ function UsV2() {
                   "Somos expertos ofreciendo soluciones para redes de
                   abastecimiento de agua, alcantarillado, servicios públicos,
                   pluviales, redes de telecomunicaciones, pesas y equipos para
-                  gimnasio.",
+                  gimnasio.
                 </Text>
               </Flex>
             </Flex>
